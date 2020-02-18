@@ -66,7 +66,7 @@ lazy val litecoind = (project in file("litecoind"))
   .dependsOn(core)
   .dependsOn(bitcoind)
 
-lazy val bitcoindCash = (project in file("bitcoind-cash"))
+lazy val bitcoindCash = (project in file("bitcoindCash"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
