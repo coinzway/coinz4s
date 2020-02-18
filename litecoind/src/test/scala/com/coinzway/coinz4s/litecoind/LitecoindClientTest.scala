@@ -26,8 +26,8 @@ class LitecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
     litecoindClient.walletInfo match {
       case Left(_) => throw new RuntimeException("unexpected bitcoind response")
       case Right(walletInfo) =>
-        walletInfo.balance shouldBe BigDecimal("1.65751751")
-        walletInfo.unconfirmed_balance shouldBe BigDecimal(0.01)
+        walletInfo.balance shouldBe BigDecimal("14717.18716800")
+        walletInfo.unconfirmed_balance shouldBe BigDecimal(0)
     }
   }
 
@@ -45,28 +45,28 @@ class LitecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
   it should "return networkinfo" in {
     litecoindClient.networkInfo match {
       case Left(_)            => throw new RuntimeException("unexpected bitcoind response")
-      case Right(networkInfo) => networkInfo.connections shouldBe 8
+      case Right(networkInfo) => networkInfo.connections shouldBe 0
     }
   }
 
   it should "return mininginfo" in {
     litecoindClient.miningInfo match {
       case Left(_)           => throw new RuntimeException("unexpected bitcoind response")
-      case Right(miningInfo) => miningInfo.blocks shouldBe 1089632
+      case Right(miningInfo) => miningInfo.blocks shouldBe 1001
     }
   }
 
   it should "return memPoolInfo" in {
     litecoindClient.memPoolInfo match {
       case Left(_)            => throw new RuntimeException("unexpected bitcoind response")
-      case Right(memPoolInfo) => memPoolInfo.size shouldBe 4
+      case Right(memPoolInfo) => memPoolInfo.size shouldBe 1
     }
   }
 
   it should "return blockchainInfo" in {
     litecoindClient.blockchainInfo match {
       case Left(_)               => throw new RuntimeException("unexpected bitcoind response")
-      case Right(blockchainInfo) => blockchainInfo.chain shouldBe "test"
+      case Right(blockchainInfo) => blockchainInfo.chain shouldBe "regtest"
     }
   }
 
@@ -84,7 +84,7 @@ class LitecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
       case Left(_) => throw new RuntimeException("unexpected bitcoind response")
       case Right(unspentTransactions) =>
         unspentTransactions.unspentTransactions.size shouldBe 2
-        unspentTransactions.unspentTransactions.head.address shouldBe "mxC1MksGZQAARADNQutrT5FPVn76bqmgZW"
+        unspentTransactions.unspentTransactions.head.address shouldBe "QZLT9cUB35dniYZFGh7UY3VGW487YKqH2J"
     }
   }
 
@@ -155,7 +155,7 @@ class LitecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
     litecoindClient.getTransaction(txid) match {
       case Left(_) => throw new RuntimeException("unexpected bitcoind response")
       case Right(response) =>
-        response.fee shouldBe Some(BigDecimal(-0.1))
+        response.fee shouldBe Some(BigDecimal(-0.00033200))
         response.details should have size 2
     }
   }
@@ -167,7 +167,7 @@ class LitecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
       case Right(response) =>
         response.vin should have size 1
         val txId = response.vin.head.asInstanceOf[TransactionInput].txid
-        txId shouldBe "2ac0daff49a4ff82a35a4864797f99f23c396b0529c5ba1e04b3d7b97521feba"
+        txId shouldBe "aa17244e56d4dd1e0548901ba27f85291dec508dc8c79b47ba16879fd601a576"
     }
   }
 
@@ -178,7 +178,7 @@ class LitecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
       case Right(response) =>
         response.vin should have size 1
         val coinbase = response.vin.head.asInstanceOf[CoinbaseInput].coinbase
-        coinbase shouldBe "02d1060101"
+        coinbase shouldBe "0297010101"
     }
   }
 

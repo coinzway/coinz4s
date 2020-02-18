@@ -6,8 +6,6 @@ scalaVersion := "2.13.1"
 
 organization := "coinzway"
 
-scapegoatVersion in ThisBuild := "1.4.1"
-
 licenses += ("Apache-2.0", url("https://opensource.org/licenses/Apache-2.0"))
 
 lazy val IntegrationTest = config("it") extend Test
