@@ -17,3 +17,7 @@ This project attempts to create a common interface for interacting with multiple
 - [ ] BNB
 - [ ] ADA
 - [ ] XLM
+
+# Testing
+- Create unit tests that map json responses from the wallet to expected case classes
+- Create integration tests that perform RPC calls to wallets running in regtest mode
