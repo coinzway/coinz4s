@@ -81,7 +81,7 @@ jobs:
       - codecov/upload:
           file: "target/scala-2.13/scoverage-report/scoverage.xml"
 
-  integration_btc:
+  integration_bitcoind:
     docker:
       - image: circleci/openjdk:11-jdk
       - image: coinzway/bitcoind-integration-test-docker:latest
@@ -96,7 +96,24 @@ jobs:
             - v1-dependencies-{{ checksum "build.sbt" }}
             - v1-dependencies-
 
-      - run: sbt "project btc" it:test
+      - run: sbt "project bitcoind" it:test
+
+  integration_litecoind:
+    docker:
+      - image: circleci/openjdk:11-jdk
+      - image: coinzway/litecoind-integration-test-docker:latest
+    working_directory: ~/repo
+    environment:
+      TERM: dumb
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.sbt" }}
+            - v1-dependencies-
+
+      - run: sbt "project litecoind" it:test
 
 workflows:
   version: 2
@@ -105,4 +122,5 @@ workflows:
       - check_scapegoat
       - check_scalafmt
       - build
-      - integration_btc
+      - integration_bitcoind
+      - integration_litecoind

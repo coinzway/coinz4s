@@ -4,7 +4,6 @@ import com.coinzway.coinz4s.bitcoind.ClientObjects
 import com.coinzway.coinz4s.bitcoind.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
 import com.coinzway.coinz4s.bitcoind.Responses.{CoinbaseInput, TransactionInput}
 import com.coinzway.coinz4s.core.BaseResponses.GeneralErrorResponse
-import com.coinzway.coinz4s.litecoind.LitecoindClient
 import com.softwaremill.sttp._
 import com.softwaremill.sttp.testing.SttpBackendStub
 import org.scalatest.flatspec.AnyFlatSpec
