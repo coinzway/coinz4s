@@ -4,7 +4,7 @@ This project attempts to create a common interface for interacting with multiple
 
 # Supported coins
 
-- [ ] BTC
+- [x] BTC
 - [ ] LTC
 - [ ] BCH
 - [ ] DOGE
