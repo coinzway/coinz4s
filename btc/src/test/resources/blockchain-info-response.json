@@ -1,0 +1,73 @@
+{
+  "result": {
+    "softforks": [{
+      "id": "bip34",
+      "version": 2,
+      "enforce": {
+        "status": true,
+        "found": 100,
+        "required": 51,
+        "window": 100
+      },
+      "reject": {
+        "status": true,
+        "found": 100,
+        "required": 75,
+        "window": 100
+      }
+    }, {
+      "id": "bip66",
+      "version": 3,
+      "enforce": {
+        "status": true,
+        "found": 100,
+        "required": 51,
+        "window": 100
+      },
+      "reject": {
+        "status": true,
+        "found": 100,
+        "required": 75,
+        "window": 100
+      }
+    }, {
+      "id": "bip65",
+      "version": 4,
+      "enforce": {
+        "status": true,
+        "found": 100,
+        "required": 51,
+        "window": 100
+      },
+      "reject": {
+        "status": true,
+        "found": 100,
+        "required": 75,
+        "window": 100
+      }
+    }],
+    "bestblockhash": "0000000000000732220dd6a674c12f91e2b9cd21817338708f6de5b56f75a7d3",
+    "difficulty": 1300727.855652248,
+    "blocks": 1089634,
+    "chainwork": "00000000000000000000000000000000000000000000001f12183d2453fbca7d",
+    "bip9_softforks": {
+      "csv": {
+        "status": "active",
+        "startTime": 1456790400,
+        "timeout": 1493596800
+      },
+      "segwit": {
+        "status": "active",
+        "startTime": 1462060800,
+        "timeout": 1493596800
+      }
+    },
+    "mediantime": 1487591936,
+    "headers": 1089634,
+    "verificationprogress": 0.999999957737826,
+    "chain": "test",
+    "pruned": false
+  },
+  "error": null,
+  "id": null
+}

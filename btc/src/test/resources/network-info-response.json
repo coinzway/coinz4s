@@ -1,0 +1,43 @@
+{
+  "result": {
+    "networks": [{
+      "name": "ipv4",
+      "limited": false,
+      "proxy_randomize_credentials": false,
+      "proxy": "",
+      "reachable": true
+    }, {
+      "name": "ipv6",
+      "limited": false,
+      "proxy_randomize_credentials": false,
+      "proxy": "",
+      "reachable": true
+    }, {
+      "name": "onion",
+      "limited": true,
+      "proxy_randomize_credentials": false,
+      "proxy": "",
+      "reachable": false
+    }],
+    "localaddresses": [{
+      "address": "1.2.3.4",
+      "port": 18333,
+      "score": 1
+    }, {
+      "address": "abcd:efef::abcde:adad:1234:5678",
+      "port": 18333,
+      "score": 1
+    }],
+    "timeoffset": 0,
+    "warnings": "Warning: unknown new rules activated (versionbit 28)",
+    "subversion": "/Satoshi:0.13.1/",
+    "version": 130100,
+    "localrelay": true,
+    "protocolversion": 70014,
+    "relayfee": 0.00001,
+    "localservices": "000000000000000d",
+    "connections": 8
+  },
+  "error": null,
+  "id": null
+}

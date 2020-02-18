@@ -1,0 +1,14 @@
+{
+  "result": {
+    "paytxfee": 0,
+    "immature_balance": 0,
+    "txcount": 195,
+    "balance": 1.65751751,
+    "keypoololdest": 1483630921,
+    "unconfirmed_balance": 0.01,
+    "walletversion": 60000,
+    "keypoolsize": 100
+  },
+  "error": null,
+  "id": null
+}

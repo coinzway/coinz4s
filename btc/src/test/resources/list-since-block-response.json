@@ -1,0 +1,37 @@
+{
+  "result": {
+    "transactions": [
+      {
+        "address": "2Mu6BpdkinywpmLShnoDuhM9TJsDuNyFes5",
+        "category": "send",
+        "amount": -0.33000000,
+        "vout": 1,
+        "fee": -0.00003800,
+        "confirmations": 0,
+        "trusted": true,
+        "txid": "f72c798f04b770772fc64545922275f74340c8f54820e0520ea57ebafa9f0875",
+        "walletconflicts": [],
+        "time": 1523021254,
+        "timereceived": 1523021254,
+        "bip125-replaceable": "no",
+        "abandoned": false
+      },
+      {
+        "address": "mnfeGQijZn6vMjBjwYvBFG5qsi3HZecG9L",
+        "category": "receive",
+        "amount": 0.33000000,
+        "label": "",
+        "vout": 1,
+        "confirmations": 0,
+        "trusted": true,
+        "txid": "d606511515b6b7dca69a34ffb2376aabd0371199b39d6fd5fa7b234ce4339a97",
+        "walletconflicts": [],
+        "time": 1523021380,
+        "timereceived": 1523021380,
+        "bip125-replaceable": "no"
+      }
+    ],
+    "lastblock": "4fed3588db4a6e40597620bd957beb959eacf502291e83a39898a740211727b8"
+  }
+}
+

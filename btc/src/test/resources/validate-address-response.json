@@ -1,0 +1,19 @@
+{
+  "result": {
+    "isvalid": true,
+    "address": "bcrt1qahztuh9phvwj8auphfeqsw5hfhphssjf3mze8k",
+    "scriptPubKey": "0014edc4be5ca1bb1d23f781ba72083a974dc3784249",
+    "ismine": true,
+    "iswatchonly": false,
+    "isscript": false,
+    "iswitness": true,
+    "witness_version": 0,
+    "witness_program": "edc4be5ca1bb1d23f781ba72083a974dc3784249",
+    "pubkey": "03e858f7cf9366e4c2557ad3ecda7137fa03bfa562bead3b31aaf9c11ec74acc59",
+    "timestamp": 1541590475,
+    "hdkeypath": "m/0'/0'/610'",
+    "hdmasterkeyid": "1c27ee219874589cb170841fc78cb05bdcb60827"
+  },
+  "error": null,
+  "id": null
+}
