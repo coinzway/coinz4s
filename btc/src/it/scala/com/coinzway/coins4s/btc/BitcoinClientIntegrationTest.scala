@@ -3,11 +3,11 @@ package com.coinzway.coins4s.btc
 import akka.stream.scaladsl.Source
 import akka.util.ByteString
 import com.coinzway.coinz4s.btc.BitcoinClient
-import com.coinzway.coinz4s.btc.ClientObjects.{AddressType, EstimateMode, RawTransactionInput, RawTransactionInputs, Recipients}
+import com.coinzway.coinz4s.btc.ClientObjects._
 import com.coinzway.coinz4s.btc.Responses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
-import com.softwaremill.sttp.{MonadError, SttpBackend}
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend
+import com.softwaremill.sttp.{MonadError, SttpBackend}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AsyncWordSpec
 

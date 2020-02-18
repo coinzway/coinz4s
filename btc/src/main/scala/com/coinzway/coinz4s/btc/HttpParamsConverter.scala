@@ -1,6 +1,6 @@
 package com.coinzway.coinz4s.btc
 
-import ClientObjects.RawTransactionInput
+import com.coinzway.coinz4s.btc.ClientObjects.RawTransactionInput
 import spray.json._
 
 object HttpParamsConverter extends DefaultJsonProtocol {

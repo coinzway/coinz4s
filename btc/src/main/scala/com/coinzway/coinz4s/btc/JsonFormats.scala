@@ -1,6 +1,6 @@
 package com.coinzway.coinz4s.btc
 
-import Responses._
+import com.coinzway.coinz4s.btc.Responses._
 import spray.json._
 
 trait JsonFormats extends DefaultJsonProtocol {

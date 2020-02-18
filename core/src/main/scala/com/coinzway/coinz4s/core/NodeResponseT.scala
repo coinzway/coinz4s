@@ -1,6 +1,6 @@
 package com.coinzway.coinz4s.core
 
-import BaseResponses._
+import com.coinzway.coinz4s.core.BaseResponses._
 import com.softwaremill.sttp.MonadError
 
 final case class NodeResponseT[R[_], A <: CorrectResponse](

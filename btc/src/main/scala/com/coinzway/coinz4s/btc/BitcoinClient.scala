@@ -1,7 +1,7 @@
 package com.coinzway.coinz4s.btc
 
-import ClientObjects.{AddressType, EstimateMode, RawTransactionInputs, Recipients}
-import Responses._
+import com.coinzway.coinz4s.btc.ClientObjects.{AddressType, EstimateMode, RawTransactionInputs, Recipients}
+import com.coinzway.coinz4s.btc.Responses._
 import com.coinzway.coinz4s.core.BaseResponses.{CorrectResponse, GeneralErrorResponse, NodeResponse}
 import com.coinzway.coinz4s.core.NodeResponseT
 import com.softwaremill.sttp._
