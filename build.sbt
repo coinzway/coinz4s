@@ -19,9 +19,9 @@ lazy val root = (project in file("."))
   )
   .aggregate(
     core,
-    btc,
-    ltc,
-    bch
+    bitcoind,
+    litecoind,
+    bitcoindCash
   )
 
 lazy val dependencies = {
@@ -51,7 +51,7 @@ lazy val core = (project in file("core"))
     libraryDependencies ++= dependencies
   )
 
-lazy val btc = (project in file("btc"))
+lazy val bitcoind = (project in file("bitcoind"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
@@ -59,15 +59,16 @@ lazy val btc = (project in file("btc"))
   )
   .dependsOn(core)
 
-lazy val ltc = (project in file("ltc"))
+lazy val litecoind = (project in file("litecoind"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
+  .dependsOn(bitcoind)
 
-lazy val bch = (project in file("bch"))
+lazy val bitcoindCash = (project in file("bitcoind-cash"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,

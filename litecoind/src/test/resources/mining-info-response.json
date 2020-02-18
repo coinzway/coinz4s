@@ -1,0 +1,14 @@
+{
+  "result": {
+    "blocks": 1001,
+    "currentblockweight": 4000,
+    "currentblocktx": 0,
+    "difficulty": 4.656542373906925e-10,
+    "networkhashps": 12,
+    "pooledtx": 1,
+    "chain": "regtest",
+    "warnings": ""
+  },
+  "error": null,
+  "id": null
+}

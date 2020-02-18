@@ -1,0 +1,55 @@
+{
+  "result": {
+    "chain": "regtest",
+    "blocks": 1001,
+    "headers": 1001,
+    "bestblockhash": "ef75f1188b5fc7ec7145012bda0654f4bdaa3dab32dee2a363185bf7d6672c73",
+    "difficulty": 4.656542373906925e-10,
+    "mediantime": 1582031993,
+    "verificationprogress": 1,
+    "initialblockdownload": false,
+    "chainwork": "00000000000000000000000000000000000000000000000000000000000007d4",
+    "size_on_disk": 301446,
+    "pruned": false,
+    "softforks": [
+      {
+        "id": "bip34",
+        "version": 2,
+        "reject": {
+          "status": false
+        }
+      },
+      {
+        "id": "bip66",
+        "version": 3,
+        "reject": {
+          "status": false
+        }
+      },
+      {
+        "id": "bip65",
+        "version": 4,
+        "reject": {
+          "status": false
+        }
+      }
+    ],
+    "bip9_softforks": {
+      "csv": {
+        "status": "active",
+        "startTime": 0,
+        "timeout": 9223372036854775807,
+        "since": 432
+      },
+      "segwit": {
+        "status": "active",
+        "startTime": -1,
+        "timeout": 9223372036854775807,
+        "since": 0
+      }
+    },
+    "warnings": ""
+  },
+  "error": null,
+  "id": null
+}

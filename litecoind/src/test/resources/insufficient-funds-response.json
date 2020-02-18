@@ -1,0 +1,8 @@
+{
+  "result": null,
+  "error": {
+    "code": -6,
+    "message": "Account has insufficient funds"
+  },
+  "id": null
+}

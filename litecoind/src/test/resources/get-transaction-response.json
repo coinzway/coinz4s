@@ -1,0 +1,35 @@
+{
+  "result": {
+    "amount": 0.00000000,
+    "fee": -0.00033200,
+    "confirmations": 0,
+    "trusted": true,
+    "txid": "74b9127af46725e58290460e0999d1d209933637a196bca90cae3a493460b94f",
+    "walletconflicts": [
+    ],
+    "time": 1582032014,
+    "timereceived": 1582032014,
+    "bip125-replaceable": "no",
+    "details": [
+      {
+        "address": "QaB6iPBFoJx4Uj3NZ3CmSJbFR92PmHLq3Z",
+        "category": "send",
+        "amount": -1.00000000,
+        "label": "",
+        "vout": 0,
+        "fee": -0.00033200,
+        "abandoned": false
+      },
+      {
+        "address": "QaB6iPBFoJx4Uj3NZ3CmSJbFR92PmHLq3Z",
+        "category": "receive",
+        "amount": 1.00000000,
+        "label": "",
+        "vout": 0
+      }
+    ],
+    "hex": "0200000000010176a501d69f8716ba479bc7c88d50ec1d29857fa21b9048051eddd4564e2417aa000000001716001463faafe0fdde1fd593e01f6ee94a9098f1d42d92feffffff0200e1f5050000000017a91494dce01bacc536be9c8f98c950e32e24d3f47c8a87e0cc59030000000017a914c402fabd521be75c484a61bec8535adb34ee105a8702473044022068ffbc442758fb5cf0d2624cd26ecd0b72c7480c6ae00e8d7a04d595d9a4141502204587445d9b6d2e4c8aad57b0929ae2b7d44baf658165a500e3f7543925c39f00012102a09ed7154bbea8d157153d169cde99c64cbe3db050bd0d12f9ae11e0b8be3fbce9030000"
+  },
+  "error": null,
+  "id": null
+}
