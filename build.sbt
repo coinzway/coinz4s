@@ -1,3 +1,5 @@
+import org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings
+
 name := "coinz4s"
 
 version := "0.1"
@@ -13,7 +15,8 @@ lazy val IntegrationTest = config("it") extend Test
 lazy val root = (project in file("."))
   .configs(IntegrationTest)
   .settings(
-    Defaults.itSettings
+    Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings)
   )
   .aggregate(
     core,
@@ -46,6 +49,7 @@ lazy val core = (project in file("core"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
   )
 
@@ -53,6 +57,7 @@ lazy val bitcoind = (project in file("bitcoind"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
@@ -61,6 +66,7 @@ lazy val litecoind = (project in file("litecoind"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
@@ -70,6 +76,7 @@ lazy val bitcoindCash = (project in file("bitcoindCash"))
   .configs(IntegrationTest)
   .settings(
     Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)

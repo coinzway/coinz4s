@@ -1,0 +1,32 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+services:
+  - name: bitcoind
+    image: coinzway/bitcoind-integration-test-docker:latest
+  - name: litecoind
+    image: coinzway/litecoind-integration-test-docker:latest
+
+steps:
+  - name: check_scalafmt
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt scalafmtCheckAll
+  - name: build
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt compileAll
+  - name: test
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt test
+  - name: integration_bitcoind
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt "project bitcoind" it:test
+  - name: integration_litecoind
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt "project litecoind" it:test
