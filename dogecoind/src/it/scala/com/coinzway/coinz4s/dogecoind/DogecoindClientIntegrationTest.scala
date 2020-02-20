@@ -141,14 +141,6 @@ class DogecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
       val result = dogecoindClient.getRawChangeAddress(Some(AddressType.BECH32))
       result.map(_ shouldBe Symbol("right"))
     }
-    "create new wallet in" in {
-      val newWalletName = System.nanoTime().toString
-      val result = dogecoindClient.createWallet(newWalletName)
-      result.map {
-        case Left(_)          => throw new RuntimeException("test failed")
-        case Right(newWallet) => newWallet.name shouldBe newWalletName
-      }
-    }
   }
 
   private def rawTransactionInputs(unspentTransaction: UnspentTransaction): RawTransactionInputs =

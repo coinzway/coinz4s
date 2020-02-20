@@ -28,7 +28,6 @@ object TestData {
   val sendRawTransaction: JsValue = readJson("send-raw-transaction.json")
   val estimateSmartFee: JsValue = readJson("estimate-smart-fee-response.json")
   val validateAddress: JsValue = readJson("validate-address-response.json")
-  val createWalletResponse: JsValue = readJson("create-wallet-response.json")
   val invalidJsonResponse: JsValue = readJson("invalid-json-response.json")
 
   private def readJson(name: String): JsValue = {

@@ -11,14 +11,15 @@ services:
   - name: dogecoind
     image: coinzway/dogecoind-integration-test-docker:latest
 steps:
-  - name: check_scalafmt
-    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
-    commands:
-      - sbt scalafmtCheckAll
   - name: build
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:
       - sbt compileAll
+  - name: check_scalafmt
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt scalafmtCheckAll
+    depends_on: [ build ]
   - name: test
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:

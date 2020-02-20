@@ -1,9 +1,9 @@
 {
   "result": {
-    "version": 170100,
-    "subversion": "/LitecoinCore:0.17.1/",
+    "version": 1140200,
+    "subversion": "/Shibetoshi:1.14.2/",
     "protocolversion": 70015,
-    "localservices": "000000000000040d",
+    "localservices": "000000000000000d",
     "localrelay": true,
     "timeoffset": 0,
     "networkactive": true,
@@ -31,7 +31,7 @@
         "proxy_randomize_credentials": false
       }
     ],
-    "relayfee": 0.00001000,
+    "relayfee": 1.00000000,
     "incrementalfee": 0.00001000,
     "localaddresses": [
     ],
