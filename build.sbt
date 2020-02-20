@@ -2,7 +2,7 @@ name := "coinz4s"
 
 version := "0.1"
 
-scalaVersion := "2.13.1"
+ThisBuild / scalaVersion := "2.13.1"
 
 organization := "coinzway"
 
