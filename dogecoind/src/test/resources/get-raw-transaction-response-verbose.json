@@ -1,0 +1,57 @@
+{
+  "result": {
+    "txid": "74b9127af46725e58290460e0999d1d209933637a196bca90cae3a493460b94f",
+    "hash": "ef097b1ad444f63a528ac5d92cc1c66bf94e1310a9729e2e27fae85667b52ba6",
+    "version": 2,
+    "size": 247,
+    "vsize": 166,
+    "weight": 661,
+    "locktime": 1001,
+    "vin": [
+      {
+        "txid": "aa17244e56d4dd1e0548901ba27f85291dec508dc8c79b47ba16879fd601a576",
+        "vout": 0,
+        "scriptSig": {
+          "asm": "001463faafe0fdde1fd593e01f6ee94a9098f1d42d92",
+          "hex": "16001463faafe0fdde1fd593e01f6ee94a9098f1d42d92"
+        },
+        "txinwitness": [
+          "3044022068ffbc442758fb5cf0d2624cd26ecd0b72c7480c6ae00e8d7a04d595d9a4141502204587445d9b6d2e4c8aad57b0929ae2b7d44baf658165a500e3f7543925c39f0001",
+          "02a09ed7154bbea8d157153d169cde99c64cbe3db050bd0d12f9ae11e0b8be3fbc"
+        ],
+        "sequence": 4294967294
+      }
+    ],
+    "vout": [
+      {
+        "value": 1.00000000,
+        "n": 0,
+        "scriptPubKey": {
+          "asm": "OP_HASH160 94dce01bacc536be9c8f98c950e32e24d3f47c8a OP_EQUAL",
+          "hex": "a91494dce01bacc536be9c8f98c950e32e24d3f47c8a87",
+          "reqSigs": 1,
+          "type": "scripthash",
+          "addresses": [
+            "QaB6iPBFoJx4Uj3NZ3CmSJbFR92PmHLq3Z"
+          ]
+        }
+      },
+      {
+        "value": 0.56216800,
+        "n": 1,
+        "scriptPubKey": {
+          "asm": "OP_HASH160 c402fabd521be75c484a61bec8535adb34ee105a OP_EQUAL",
+          "hex": "a914c402fabd521be75c484a61bec8535adb34ee105a87",
+          "reqSigs": 1,
+          "type": "scripthash",
+          "addresses": [
+            "QeUQ7uwTKKXQxnhiiD6EgPHCfZiFe9c47Y"
+          ]
+        }
+      }
+    ],
+    "hex": "0200000000010176a501d69f8716ba479bc7c88d50ec1d29857fa21b9048051eddd4564e2417aa000000001716001463faafe0fdde1fd593e01f6ee94a9098f1d42d92feffffff0200e1f5050000000017a91494dce01bacc536be9c8f98c950e32e24d3f47c8a87e0cc59030000000017a914c402fabd521be75c484a61bec8535adb34ee105a8702473044022068ffbc442758fb5cf0d2624cd26ecd0b72c7480c6ae00e8d7a04d595d9a4141502204587445d9b6d2e4c8aad57b0929ae2b7d44baf658165a500e3f7543925c39f00012102a09ed7154bbea8d157153d169cde99c64cbe3db050bd0d12f9ae11e0b8be3fbce9030000"
+  },
+  "error": null,
+  "id": null
+}

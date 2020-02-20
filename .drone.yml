@@ -8,7 +8,8 @@ services:
     image: coinzway/bitcoind-integration-test-docker:latest
   - name: litecoind
     image: coinzway/litecoind-integration-test-docker:latest
-
+  - name: dogecoind
+    image: coinzway/dogecoind-integration-test-docker:latest
 steps:
   - name: check_scalafmt
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
@@ -30,3 +31,7 @@ steps:
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:
       - sbt "project litecoind" it:test
+  - name: integration_dogecoind
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt "project dogecoind" it:test

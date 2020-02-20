@@ -1,0 +1,43 @@
+{
+  "result": {
+    "transactions": [
+      {
+        "address": "QZLT9cUB35dniYZFGh7UY3VGW487YKqH2J",
+        "category": "immature",
+        "amount": 0.78125000,
+        "label": "",
+        "vout": 0,
+        "confirmations": 96,
+        "generated": true,
+        "blockhash": "47dacdf6ca5e2d1577e84e1deb6fbc18eba0f2a46232c2a464e9c36fc1ecbea0",
+        "blockindex": 0,
+        "blocktime": 1582031978,
+        "txid": "39b1a4498bf1140e6ac1f5f1748255916717f0bbcddea2c53ba34efa0702c4ff",
+        "walletconflicts": [],
+        "time": 1582031829,
+        "timereceived": 1582031829,
+        "bip125-replaceable": "no"
+      },
+      {
+        "address": "QZLT9cUB35dniYZFGh7UY3VGW487YKqH2J",
+        "category": "generate",
+        "amount": 12.50000000,
+        "label": "",
+        "vout": 0,
+        "confirmations": 595,
+        "generated": true,
+        "blockhash": "ee5d8860ab8a2678f7103bdebf50ea0aba22a2b072a261de1cc16382eccedd91",
+        "blockindex": 0,
+        "blocktime": 1582031895,
+        "txid": "043c41d040360b0d0a1907c903de721de8ed1dd98148d87e71d95b3c1320d3ff",
+        "walletconflicts": [],
+        "time": 1582031828,
+        "timereceived": 1582031828,
+        "bip125-replaceable": "no"
+      }
+    ],
+    "removed": [],
+    "lastblock": "4fed3588db4a6e40597620bd957beb959eacf502291e83a39898a740211727b8"
+  }
+}
+

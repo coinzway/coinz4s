@@ -1,0 +1,19 @@
+{
+  "result": {
+    "walletname": "",
+    "walletversion": 169900,
+    "balance": 14717.18716800,
+    "unconfirmed_balance": 0.00000000,
+    "immature_balance": 78.12500000,
+    "txcount": 1002,
+    "keypoololdest": 1581601307,
+    "keypoolsize": 999,
+    "keypoolsize_hd_internal": 1000,
+    "paytxfee": 1.00000000,
+    "hdseedid": "b99ffd1cd3defca0aab214d52dcc9b52d589b549",
+    "hdmasterkeyid": "b99ffd1cd3defca0aab214d52dcc9b52d589b549",
+    "private_keys_enabled": true
+  },
+  "error": null,
+  "id": null
+}

@@ -22,7 +22,8 @@ lazy val root = (project in file("."))
     core,
     bitcoind,
     litecoind,
-    bitcoindCash
+    bitcoindCash,
+    dogecoind
   )
 
 lazy val dependencies = {
@@ -80,3 +81,13 @@ lazy val bitcoindCash = (project in file("bitcoindCash"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
+
+lazy val dogecoind = (project in file("dogecoind"))
+  .configs(IntegrationTest)
+  .settings(
+    Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
+    libraryDependencies ++= dependencies
+  )
+  .dependsOn(core)
+  .dependsOn(bitcoind)
