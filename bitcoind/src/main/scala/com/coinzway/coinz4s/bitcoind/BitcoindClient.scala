@@ -181,9 +181,7 @@ class BitcoindClient[R[_]](
 
   implicit private def flatten[T <: CorrectResponse](response: R[Response[NodeResponse[T]]]): R[NodeResponse[T]] = {
     import com.softwaremill.sttp.monadSyntax._
-    response.map { response =>
-      response.body.left.map(error => GeneralErrorResponse(error)).joinRight
-    }
+    response.map(response => response.body.left.map(error => GeneralErrorResponse(error)).joinRight)
   }
 
   private def method(methodName: String, params: Vector[Any] = Vector.empty) =

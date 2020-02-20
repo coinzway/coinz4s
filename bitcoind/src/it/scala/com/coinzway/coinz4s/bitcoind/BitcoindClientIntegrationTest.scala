@@ -15,33 +15,23 @@ import scala.concurrent.Future
 class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
-  val bitcoinClient: BitcoindClient[Future] = new BitcoindClient("user", "password", "localhost", 18443)
+  val bitcoinClient: BitcoindClient[Future] = new BitcoindClient("user", "password", "bitcoind", 18443)
 
-  "BitcoinClient" should {
+  "BitcoindClient" should {
     "get wallet info" in {
-      bitcoinClient.walletInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.walletInfo.map(result => result shouldBe Symbol("right"))
     }
     "get network info" in {
-      bitcoinClient.networkInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.networkInfo.map(result => result shouldBe Symbol("right"))
     }
     "get mining info" in {
-      bitcoinClient.miningInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.miningInfo.map(result => result shouldBe Symbol("right"))
     }
     "get mem pool info" in {
-      bitcoinClient.memPoolInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }
     "get blockchain info" in {
-      bitcoinClient.blockchainInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
     "estimate smart fee" in {
       bitcoinClient.estimateSmartFee(6, Some(EstimateMode.CONSERVATIVE)).map { result =>
@@ -49,19 +39,13 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
       }
     }
     "list unspent transactions" in {
-      bitcoinClient.listUnspentTransactions().map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))
     }
     "get new address" in {
-      bitcoinClient.getNewAddress().map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.getNewAddress().map(result => result shouldBe Symbol("right"))
     }
     "get new address with type" in {
-      bitcoinClient.getNewAddress(None, Some(AddressType.LEGACY)).map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.getNewAddress(None, Some(AddressType.LEGACY)).map(result => result shouldBe Symbol("right"))
     }
     "send to address" in {
       val sendToAddress = (for {
@@ -69,14 +53,10 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         sendToAddress <- NodeResponseT(bitcoinClient.sendToAddress(newAddress.address, 10, "comment", "commentTo"))
       } yield sendToAddress).value
 
-      sendToAddress.map { result =>
-        result shouldBe Symbol("right")
-      }
+      sendToAddress.map(result => result shouldBe Symbol("right"))
     }
     "set tx fee" in {
-      bitcoinClient.setTxFee(0.05).map { result =>
-        result shouldBe Symbol("right")
-      }
+      bitcoinClient.setTxFee(0.05).map(result => result shouldBe Symbol("right"))
     }
     "generatetoaddress" in {
       val res = (for {
@@ -84,10 +64,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         generateResult <- NodeResponseT(bitcoinClient.generatetoaddress(1, newAddress.address))
       } yield generateResult).value
 
-      res.map { result =>
-        result shouldBe Symbol("right")
-
-      }
+      res.map(result => result shouldBe Symbol("right"))
     }
     "get transaction" in {
       val transaction = (for {
@@ -95,9 +72,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         transaction <- NodeResponseT(bitcoinClient.getTransaction(unspentTransaction.unspentTransactions.head.txid))
       } yield transaction).value
 
-      transaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      transaction.map(result => result shouldBe Symbol("right"))
     }
     "get raw transaction" in {
       val rawTransaction = (for {
@@ -107,9 +82,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         )
       } yield transaction).value
 
-      rawTransaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      rawTransaction.map(result => result shouldBe Symbol("right"))
     }
     "list since block" in {
       val listSinceBlock = (for {
@@ -118,9 +91,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         listSinceBlock <- NodeResponseT(bitcoinClient.listSinceBlock(hash.hashes.head))
       } yield listSinceBlock).value
 
-      listSinceBlock.map { result =>
-        result shouldBe Symbol("right")
-      }
+      listSinceBlock.map(result => result shouldBe Symbol("right"))
     }
     "send many" in {
       val sendMany = (for {
@@ -129,9 +100,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         sendMany <- NodeResponseT(bitcoinClient.sendMany(recipients(1, newAddress1, newAddress2)))
       } yield sendMany).value
 
-      sendMany.map { result =>
-        result shouldBe Symbol("right")
-      }
+      sendMany.map(result => result shouldBe Symbol("right"))
     }
     "create raw transaction" in {
       val createRawTransaction = (for {
@@ -146,9 +115,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         )
       } yield createRawTransaction).value
 
-      createRawTransaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      createRawTransaction.map(result => result shouldBe Symbol("right"))
     }
     "send raw transaction" in {
       val sendRawTransaction = (for {
@@ -163,9 +130,7 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         )
       } yield sendRawTransaction).value
 
-      sendRawTransaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      sendRawTransaction.map(result => result shouldBe Symbol("right"))
     }
     "validate address" in {
       bitcoinClient.validateAddress("bcrt1qahztuh9phvwj8auphfeqsw5hfhphssjf3mze8k").map { result =>
@@ -180,8 +145,9 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
       val newWalletName = System.nanoTime().toString
       val result = bitcoinClient.createWallet(newWalletName)
       result.map {
-        case Left(_)          => throw new RuntimeException("test failed")
-        case Right(newWallet) => newWallet.name shouldBe newWalletName
+        case Left(_) => throw new RuntimeException("test failed")
+        case Right(newWallet) =>
+          newWallet.name shouldBe newWalletName
       }
     }
   }
@@ -191,8 +157,6 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
 
   private def recipients(amount: BigDecimal, addresses: GetNewAddress*): Recipients = {
     val amountToSplit = (amount - 0.01) / addresses.length
-    Recipients(addresses.map { address =>
-      address.address -> amountToSplit
-    }.toMap)
+    Recipients(addresses.map(address => address.address -> amountToSplit).toMap)
   }
 }

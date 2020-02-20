@@ -15,33 +15,23 @@ import scala.concurrent.Future
 class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
-  val litecoindClient: LitecoindClient[Future] = new LitecoindClient("user", "password", "localhost", 19332)
+  val litecoindClient: LitecoindClient[Future] = new LitecoindClient("user", "password", "litecoind", 19332)
 
-  "BitcoinClient" should {
+  "LitecoindClient" should {
     "get wallet info" in {
-      litecoindClient.walletInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.walletInfo.map(result => result shouldBe Symbol("right"))
     }
     "get network info" in {
-      litecoindClient.networkInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.networkInfo.map(result => result shouldBe Symbol("right"))
     }
     "get mining info" in {
-      litecoindClient.miningInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.miningInfo.map(result => result shouldBe Symbol("right"))
     }
     "get mem pool info" in {
-      litecoindClient.memPoolInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }
     "get blockchain info" in {
-      litecoindClient.blockchainInfo.map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
     "estimate smart fee" in {
       litecoindClient.estimateSmartFee(6, Some(EstimateMode.CONSERVATIVE)).map { result =>
@@ -49,19 +39,13 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
       }
     }
     "list unspent transactions" in {
-      litecoindClient.listUnspentTransactions().map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))
     }
     "get new address" in {
-      litecoindClient.getNewAddress().map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.getNewAddress().map(result => result shouldBe Symbol("right"))
     }
     "get new address with type" in {
-      litecoindClient.getNewAddress(None, Some(AddressType.LEGACY)).map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.getNewAddress(None, Some(AddressType.LEGACY)).map(result => result shouldBe Symbol("right"))
     }
     "send to address" in {
       val sendToAddress = (for {
@@ -69,14 +53,10 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         sendToAddress <- NodeResponseT(litecoindClient.sendToAddress(newAddress.address, 10, "comment", "commentTo"))
       } yield sendToAddress).value
 
-      sendToAddress.map { result =>
-        result shouldBe Symbol("right")
-      }
+      sendToAddress.map(result => result shouldBe Symbol("right"))
     }
     "set tx fee" in {
-      litecoindClient.setTxFee(0.05).map { result =>
-        result shouldBe Symbol("right")
-      }
+      litecoindClient.setTxFee(0.05).map(result => result shouldBe Symbol("right"))
     }
     "generatetoaddress" in {
       val res = (for {
@@ -84,10 +64,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         generateResult <- NodeResponseT(litecoindClient.generatetoaddress(1, newAddress.address))
       } yield generateResult).value
 
-      res.map { result =>
-        result shouldBe Symbol("right")
-
-      }
+      res.map(result => result shouldBe Symbol("right"))
     }
     "get transaction" in {
       val transaction = (for {
@@ -95,9 +72,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         transaction <- NodeResponseT(litecoindClient.getTransaction(unspentTransaction.unspentTransactions.head.txid))
       } yield transaction).value
 
-      transaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      transaction.map(result => result shouldBe Symbol("right"))
     }
     "get raw transaction" in {
       val rawTransaction = (for {
@@ -107,9 +82,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         )
       } yield transaction).value
 
-      rawTransaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      rawTransaction.map(result => result shouldBe Symbol("right"))
     }
     "list since block" in {
       val listSinceBlock = (for {
@@ -118,9 +91,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         listSinceBlock <- NodeResponseT(litecoindClient.listSinceBlock(hash.hashes.head))
       } yield listSinceBlock).value
 
-      listSinceBlock.map { result =>
-        result shouldBe Symbol("right")
-      }
+      listSinceBlock.map(result => result shouldBe Symbol("right"))
     }
     "send many" in {
       val sendMany = (for {
@@ -129,9 +100,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         sendMany <- NodeResponseT(litecoindClient.sendMany(recipients(1, newAddress1, newAddress2)))
       } yield sendMany).value
 
-      sendMany.map { result =>
-        result shouldBe Symbol("right")
-      }
+      sendMany.map(result => result shouldBe Symbol("right"))
     }
     "create raw transaction" in {
       val createRawTransaction = (for {
@@ -146,9 +115,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         )
       } yield createRawTransaction).value
 
-      createRawTransaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      createRawTransaction.map(result => result shouldBe Symbol("right"))
     }
     "send raw transaction" in {
       val sendRawTransaction = (for {
@@ -163,9 +130,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
         )
       } yield sendRawTransaction).value
 
-      sendRawTransaction.map { result =>
-        result shouldBe Symbol("right")
-      }
+      sendRawTransaction.map(result => result shouldBe Symbol("right"))
     }
     "validate address" in {
       litecoindClient.validateAddress("bcrt1qahztuh9phvwj8auphfeqsw5hfhphssjf3mze8k").map { result =>
@@ -191,8 +156,6 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
 
   private def recipients(amount: BigDecimal, addresses: GetNewAddress*): Recipients = {
     val amountToSplit = (amount - 0.01) / addresses.length
-    Recipients(addresses.map { address =>
-      address.address -> amountToSplit
-    }.toMap)
+    Recipients(addresses.map(address => address.address -> amountToSplit).toMap)
   }
 }
