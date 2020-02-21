@@ -1,0 +1,39 @@
+{
+  "result": [
+    {
+      "txid": "93108c484ffc8010ae66c585dddec0306bb9247654b943678b0bad38508cd4ff",
+      "vout": 0,
+      "address": "mjHYWwZhyeLfnrSMXuUhxGAuUyNVNuqRSF",
+      "account": "",
+      "scriptPubKey": "76a91429573f365d9252ba5046f12b3f246db888171c1c88ac",
+      "amount": 10000.00000000,
+      "confirmations": 336,
+      "spendable": true,
+      "solvable": true
+    },
+    {
+      "txid": "cc37b473907caf4f4934a10a7cef2fa9151c7e348bdf1d226f629b8e74d8d4ff",
+      "vout": 0,
+      "address": "mjHYWwZhyeLfnrSMXuUhxGAuUyNVNuqRSF",
+      "account": "",
+      "scriptPubKey": "76a91429573f365d9252ba5046f12b3f246db888171c1c88ac",
+      "amount": 500000.00000000,
+      "confirmations": 4950,
+      "spendable": true,
+      "solvable": true
+    },
+    {
+      "txid": "10f1da28e0eebe3e879a7f909f738d8b7b529897bfdce49475901d9c75bffcff",
+      "vout": 0,
+      "address": "mjHYWwZhyeLfnrSMXuUhxGAuUyNVNuqRSF",
+      "account": "",
+      "scriptPubKey": "76a91429573f365d9252ba5046f12b3f246db888171c1c88ac",
+      "amount": 10000.00000000,
+      "confirmations": 373,
+      "spendable": true,
+      "solvable": true
+    }
+  ],
+  "error": null,
+  "id": null
+}

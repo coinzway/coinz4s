@@ -34,7 +34,7 @@ object Responses {
       networkhashps: Int,
       pooledtx: Int,
       chain: String,
-      warnings: String)
+      warnings: Option[String])
       extends CorrectResponse
 
   final case class GetMemPoolInfo(

@@ -1,0 +1,11 @@
+{
+  "result": {
+    "size": 1,
+    "bytes": 226,
+    "usage": 1120,
+    "maxmempool": 300000000,
+    "mempoolminfee": 0.00000000
+  },
+  "error": null,
+  "id": null
+}
