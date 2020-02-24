@@ -1,0 +1,12 @@
+{
+  "result": {
+    "size": 1,
+    "bytes": 225,
+    "usage": 1152,
+    "maxmempool": 300000000,
+    "mempoolminfee": 0.00000000,
+    "instantsendlocks": 0
+  },
+  "error": null,
+  "id": null
+}

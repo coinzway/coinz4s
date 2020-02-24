@@ -1,0 +1,70 @@
+{
+  "result": {
+    "chain": "test",
+    "blocks": 271474,
+    "headers": 271474,
+    "bestblockhash": "0000041605dab81c32d551c4e3f1a4903799040a40576b01436bec847bf69fbd",
+    "difficulty": 0.0004700556983187907,
+    "mediantime": 1582554307,
+    "verificationprogress": 0.9999996733425139,
+    "chainwork": "00000000000000000000000000000000000000000000000000ac83ef6f60a1e2",
+    "pruned": false,
+    "softforks": [
+      {
+        "id": "bip34",
+        "version": 2,
+        "reject": {
+          "status": true
+        }
+      },
+      {
+        "id": "bip66",
+        "version": 3,
+        "reject": {
+          "status": true
+        }
+      },
+      {
+        "id": "bip65",
+        "version": 4,
+        "reject": {
+          "status": true
+        }
+      }
+    ],
+    "bip9_softforks": {
+      "csv": {
+        "status": "active",
+        "startTime": 1544655600,
+        "timeout": 1576191600,
+        "since": 8064
+      },
+      "dip0001": {
+        "status": "active",
+        "startTime": 1544655600,
+        "timeout": 1576191600,
+        "since": 4400
+      },
+      "bip147": {
+        "status": "active",
+        "startTime": 1544655600,
+        "timeout": 1576191600,
+        "since": 4300
+      },
+      "dip0003": {
+        "status": "active",
+        "startTime": 1544655600,
+        "timeout": 1576191600,
+        "since": 7000
+      },
+      "dip0008": {
+        "status": "active",
+        "startTime": 1553126400,
+        "timeout": 1584748800,
+        "since": 78800
+      }
+    }
+  },
+  "error": null,
+  "id": null
+}

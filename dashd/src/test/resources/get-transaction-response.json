@@ -1,0 +1,39 @@
+{
+  "result": {
+    "amount": 0.00000000,
+    "fee": -0.01130000,
+    "confirmations": 0,
+    "instantlock": false,
+    "instantlock_internal": false,
+    "chainlock": false,
+    "trusted": true,
+    "txid": "7bf239615074e05d5863fc2e7ef01e6a3b6315cc90f298bda17851c4001dd77f",
+    "walletconflicts": [
+    ],
+    "time": 1582555194,
+    "timereceived": 1582555194,
+    "details": [
+      {
+        "account": "",
+        "address": "yWeCR3Pfwi1TWGvLKHEZVof7H6KqA4XP3h",
+        "category": "send",
+        "amount": -6.00000000,
+        "label": "",
+        "vout": 0,
+        "fee": -0.01130000,
+        "abandoned": false
+      },
+      {
+        "account": "",
+        "address": "yWeCR3Pfwi1TWGvLKHEZVof7H6KqA4XP3h",
+        "category": "receive",
+        "amount": 6.00000000,
+        "label": "",
+        "vout": 0
+      }
+    ],
+    "hex": "0200000001b861b36286a9052d621fbc605a12c214ca7a3dc6d37807d06dbc6bd250f56701000000006a47304402205656eb88dbef56a93c0adc6f0f7059889ac39b37754be6574e4de92aed28fe440220120e3e8b816e806e7b581d38b4579c260a029ba2125521c658f58e5b80f9469c0121029ce1b4d26e3838d73fa88c71b067dae2c9d432331ead914d3d1a223ff328124afeffffff020046c323000000001976a914713d1cc48109ce9e95518fa759e8793cb47192d388ac9322dce5090000001976a914f1ae7fe687ea639ea93066f25e48697474a31bee88acf6010000"
+  },
+  "error": null,
+  "id": null
+}

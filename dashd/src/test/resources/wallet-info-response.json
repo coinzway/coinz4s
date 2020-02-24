@@ -1,0 +1,17 @@
+{
+  "result": {
+    "walletname": "wallet.dat",
+    "walletversion": 61000,
+    "balance": 188617.33564048,
+    "privatesend_balance": 0.00000000,
+    "unconfirmed_balance": 0.00000000,
+    "immature_balance": 41510.93294572,
+    "txcount": 503,
+    "keypoololdest": 1582548076,
+    "keypoolsize": 999,
+    "keys_left": 985,
+    "paytxfee": 0.05000000
+  },
+  "error": null,
+  "id": null
+}

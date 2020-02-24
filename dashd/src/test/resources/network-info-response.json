@@ -1,0 +1,52 @@
+{
+  "result": {
+    "version": 150000,
+    "subversion": "/Dash Core:0.15.0/",
+    "protocolversion": 70216,
+    "localservices": "0000000000000005",
+    "localrelay": true,
+    "timeoffset": 0,
+    "networkactive": true,
+    "connections": 0,
+    "networks": [
+      {
+        "name": "ipv4",
+        "limited": false,
+        "reachable": true,
+        "proxy": "",
+        "proxy_randomize_credentials": false
+      },
+      {
+        "name": "ipv6",
+        "limited": false,
+        "reachable": true,
+        "proxy": "",
+        "proxy_randomize_credentials": false
+      },
+      {
+        "name": "onion",
+        "limited": true,
+        "reachable": false,
+        "proxy": "",
+        "proxy_randomize_credentials": false
+      }
+    ],
+    "relayfee": 0.00001000,
+    "incrementalfee": 0.00001000,
+    "localaddresses": [
+      {
+        "address": "192.168.17.92",
+        "port": 19899,
+        "score": 1
+      },
+      {
+        "address": "fe80::74b0:ff:fefa:cb54",
+        "port": 19899,
+        "score": 1
+      }
+    ],
+    "warnings": ""
+  },
+  "error": null,
+  "id": null
+}

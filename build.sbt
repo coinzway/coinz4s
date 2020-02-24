@@ -91,3 +91,13 @@ lazy val dogecoind = (project in file("dogecoind"))
   )
   .dependsOn(core)
   .dependsOn(bitcoind)
+
+lazy val dashd = (project in file("dashd"))
+  .configs(IntegrationTest)
+  .settings(
+    Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
+    libraryDependencies ++= dependencies
+  )
+  .dependsOn(core)
+  .dependsOn(bitcoind)

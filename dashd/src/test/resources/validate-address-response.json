@@ -1,0 +1,16 @@
+{
+  "result": {
+    "isvalid": true,
+    "address": "ycKkAHmiVQx1WV1jpqNJx8ohb7QRH9AywE",
+    "scriptPubKey": "76a914af9076b7a20ffb5e84aaee7f5ee60f453a29cad588ac",
+    "ismine": true,
+    "iswatchonly": false,
+    "isscript": false,
+    "pubkey": "0218015f9308781bb01e436c2ae0e79b589472809b77a20deff77cd8928afdbe62",
+    "iscompressed": true,
+    "account": "",
+    "timestamp": 1582548076
+  },
+  "error": null,
+  "id": null
+}
