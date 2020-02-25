@@ -134,7 +134,7 @@ class BitcoindCashClientIntegrationTest extends AsyncWordSpec with Matchers {
       }
     }
     "get change address" in {
-      val result = bitcoindCashClient.getRawChangeAddress(Some(AddressType.BECH32))
+      val result = bitcoindCashClient.getRawChangeAddress()
       result.map(_ shouldBe Symbol("right"))
     }
     "create new wallet in" in {

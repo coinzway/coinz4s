@@ -1,8 +1,8 @@
 package com.coinzway.coinz4s.zcashd
 
-import com.coinzway.coinz4s.zcashd.ClientObjects
-import com.coinzway.coinz4s.zcashd.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
-import com.coinzway.coinz4s.zcashd.Responses.{CoinbaseInput, TransactionInput}
+import com.coinzway.coinz4s.bitcoind.ClientObjects
+import com.coinzway.coinz4s.bitcoind.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
+import com.coinzway.coinz4s.bitcoind.Responses.{CoinbaseInput, TransactionInput}
 import com.coinzway.coinz4s.core.BaseResponses.GeneralErrorResponse
 import com.softwaremill.sttp._
 import com.softwaremill.sttp.testing.SttpBackendStub
