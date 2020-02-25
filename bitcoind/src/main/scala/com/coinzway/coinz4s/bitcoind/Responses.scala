@@ -96,7 +96,7 @@ object Responses {
       timereceived: Option[Long],
       comment: Option[String],
       to: Option[String],
-      `bip125-replaceable`: String,
+      `bip125-replaceable`: Option[String],
       abandoned: Option[Boolean])
 
   final case class Transaction(
@@ -111,7 +111,7 @@ object Responses {
       walletconflicts: List[String],
       time: Long,
       timereceived: Long,
-      `bip125-replaceable`: String,
+      `bip125-replaceable`: Option[String],
       comment: Option[String],
       to: Option[String],
       details: List[TransactionDetails],

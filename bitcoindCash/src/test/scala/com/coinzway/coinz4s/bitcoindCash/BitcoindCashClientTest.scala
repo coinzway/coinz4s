@@ -139,7 +139,7 @@ class BitcoindCashClientTest extends AnyFlatSpec with Matchers with TestDataHelp
     bitcoindCashClient.getTransaction(txid) match {
       case Left(_) => throw new RuntimeException("unexpected bitcoind-cash response")
       case Right(response) =>
-        response.fee shouldBe Some(BigDecimal(-0.00033200))
+        response.fee shouldBe Some(BigDecimal(-0.00000225))
         response.details should have size 2
     }
   }
