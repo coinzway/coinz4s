@@ -26,9 +26,6 @@ class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get network info" in {
       zcashdCashClient.networkInfo.map(result => result shouldBe Symbol("right"))
     }
-    "get mining info" in {
-      zcashdCashClient.miningInfo.map(result => result shouldBe Symbol("right"))
-    }
     "get mem pool info" in {
       zcashdCashClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }

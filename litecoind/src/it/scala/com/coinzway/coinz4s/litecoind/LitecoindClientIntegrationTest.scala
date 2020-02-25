@@ -24,9 +24,6 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get network info" in {
       litecoindClient.networkInfo.map(result => result shouldBe Symbol("right"))
     }
-    "get mining info" in {
-      litecoindClient.miningInfo.map(result => result shouldBe Symbol("right"))
-    }
     "get mem pool info" in {
       litecoindClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }

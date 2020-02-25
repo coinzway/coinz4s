@@ -24,9 +24,6 @@ class DogecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get network info" in {
       dogecoindClient.networkInfo.map(result => result shouldBe Symbol("right"))
     }
-    "get mining info" in {
-      dogecoindClient.miningInfo.map(result => result shouldBe Symbol("right"))
-    }
     "get mem pool info" in {
       dogecoindClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }

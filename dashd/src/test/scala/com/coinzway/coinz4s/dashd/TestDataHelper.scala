@@ -34,7 +34,6 @@ trait TestDataHelper {
           case _ if params.contains("parseError")                 => TestData.parseErrorResponse
           case "getwalletinfo"                                    => TestData.walletInfoResponse
           case "getnetworkinfo"                                   => TestData.networkInfoResponse
-          case "getmininginfo"                                    => TestData.miningInfoResponse
           case "getmempoolinfo"                                   => TestData.memPoolInfoResponse
           case "getblockchaininfo"                                => TestData.blockchainInfoResponse
           case "listunspent"                                      => TestData.listUnspentResponse

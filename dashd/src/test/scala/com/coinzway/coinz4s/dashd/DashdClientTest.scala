@@ -49,13 +49,6 @@ class DashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     }
   }
 
-  it should "return mininginfo" in {
-    dogecoindClient.miningInfo match {
-      case Left(_)           => throw new RuntimeException("unexpected dogecoind response")
-      case Right(miningInfo) => miningInfo.blocks shouldBe 5010
-    }
-  }
-
   it should "return memPoolInfo" in {
     dogecoindClient.memPoolInfo match {
       case Left(_)            => throw new RuntimeException("unexpected dogecoind response")

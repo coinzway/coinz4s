@@ -24,9 +24,6 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get network info" in {
       bitcoinClient.networkInfo.map(result => result shouldBe Symbol("right"))
     }
-    "get mining info" in {
-      bitcoinClient.miningInfo.map(result => result shouldBe Symbol("right"))
-    }
     "get mem pool info" in {
       bitcoinClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }

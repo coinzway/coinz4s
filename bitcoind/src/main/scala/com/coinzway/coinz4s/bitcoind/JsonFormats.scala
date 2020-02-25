@@ -10,7 +10,6 @@ trait JsonFormats extends DefaultJsonProtocol {
 
   implicit val GetWalletInfoFormat: RootJsonFormat[GetWalletInfo] = jsonFormat7(GetWalletInfo)
   implicit val GetNetworkInfoFormat: RootJsonFormat[GetNetworkInfo] = jsonFormat9(GetNetworkInfo)
-  implicit val GetMiningInfoFormat: RootJsonFormat[GetMiningInfo] = jsonFormat8(GetMiningInfo)
   implicit val GetMemPoolInfoFormat: RootJsonFormat[GetMemPoolInfo] = jsonFormat5(GetMemPoolInfo)
   implicit val GetBlockChainInfoFormat: RootJsonFormat[GetBlockChainInfo] = jsonFormat10(GetBlockChainInfo)
 

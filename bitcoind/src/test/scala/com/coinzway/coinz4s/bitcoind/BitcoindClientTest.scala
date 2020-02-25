@@ -48,13 +48,6 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     }
   }
 
-  it should "return mininginfo" in {
-    bitcoinClient.miningInfo match {
-      case Left(_)           => throw new RuntimeException("unexpected bitcoind response")
-      case Right(miningInfo) => miningInfo.blocks shouldBe 1089632
-    }
-  }
-
   it should "return memPoolInfo" in {
     bitcoinClient.memPoolInfo match {
       case Left(_)            => throw new RuntimeException("unexpected bitcoind response")

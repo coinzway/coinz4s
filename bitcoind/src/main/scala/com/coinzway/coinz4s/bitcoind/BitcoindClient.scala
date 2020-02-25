@@ -48,9 +48,6 @@ class BitcoindClient[R[_]](
   def networkInfo: R[NodeResponse[GetNetworkInfo]] =
     request.body(method("getnetworkinfo")).response(as[GetNetworkInfo]).send()
 
-  def miningInfo: R[NodeResponse[GetMiningInfo]] =
-    request.body(method("getmininginfo")).response(as[GetMiningInfo]).send()
-
   def memPoolInfo: R[NodeResponse[GetMemPoolInfo]] =
     request.body(method("getmempoolinfo")).response(as[GetMemPoolInfo]).send()
 

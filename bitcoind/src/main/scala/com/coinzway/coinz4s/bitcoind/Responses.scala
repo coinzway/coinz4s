@@ -26,17 +26,6 @@ object Responses {
       networks: Vector[Network])
       extends CorrectResponse
 
-  final case class GetMiningInfo(
-      blocks: Int,
-      currentblockweight: Int,
-      currentblocktx: Int,
-      difficulty: Int,
-      networkhashps: Int,
-      pooledtx: Int,
-      chain: String,
-      warnings: Option[String])
-      extends CorrectResponse
-
   final case class GetMemPoolInfo(
       size: Int,
       bytes: Int,

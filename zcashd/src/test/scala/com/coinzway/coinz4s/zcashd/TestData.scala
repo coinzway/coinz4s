@@ -6,7 +6,6 @@ object TestData {
 
   val walletInfoResponse: JsValue = readJson("wallet-info-response.json")
   val networkInfoResponse: JsValue = readJson("network-info-response.json")
-  val miningInfoResponse: JsValue = readJson("mining-info-response.json")
   val memPoolInfoResponse: JsValue = readJson("mem-pool-info-response.json")
   val blockchainInfoResponse: JsValue = readJson("blockchain-info-response.json")
   val listUnspentResponse: JsValue = readJson("list-unspent-response.json")
