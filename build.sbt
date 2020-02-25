@@ -102,3 +102,13 @@ lazy val dashd = (project in file("dashd"))
   )
   .dependsOn(core)
   .dependsOn(bitcoind)
+
+lazy val zcashd = (project in file("zcashd"))
+  .configs(IntegrationTest)
+  .settings(
+    Defaults.itSettings,
+    inConfig(IntegrationTest)(scalafmtConfigSettings),
+    libraryDependencies ++= dependencies
+  )
+  .dependsOn(core)
+  .dependsOn(bitcoind)

@@ -14,6 +14,8 @@ services:
     image: coinzway/dashd-integration-test-docker:0.15.0
   - name: bitcoind_cash
     image: coinzway/bitcoind-cash-integration-test-docker:0.21.0
+  - name: zcashd
+    image: coinzway/zcashd-integration-test-docker:2.1.1
 steps:
   - name: build
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
@@ -53,4 +55,9 @@ steps:
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:
       - sbt "project bitcoindCash" it:test
+    depends_on: [ build ]
+  - name: integration_zcashd
+    image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
+    commands:
+      - sbt "project zcashd" it:test
     depends_on: [ build ]

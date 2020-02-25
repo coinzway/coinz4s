@@ -1,0 +1,36 @@
+{
+  "result": {
+    "amount": 0.00000000,
+    "fee": -0.00000373,
+    "confirmations": 0,
+    "txid": "34572253f55579876a53945077aca40b3a27b06dbe1ecb4a4f5e8d453b64f2cf",
+    "walletconflicts": [
+    ],
+    "time": 1582632322,
+    "timereceived": 1582632322,
+    "vjoinsplit": [
+    ],
+    "details": [
+      {
+        "account": "",
+        "address": "tmRR9QHYzYQJXRPrsL8oiKVoe6MX4MgGkuN",
+        "category": "send",
+        "amount": -1.00000000,
+        "vout": 0,
+        "fee": -0.00000373,
+        "size": 373
+      },
+      {
+        "account": "",
+        "address": "tmRR9QHYzYQJXRPrsL8oiKVoe6MX4MgGkuN",
+        "category": "receive",
+        "amount": 1.00000000,
+        "vout": 0,
+        "size": 373
+      }
+    ],
+    "hex": "01000000029e67ea4e2b48f9a7b4c2db25ce73b3d544ba8bf0655f606f29a55057c5455431000000006a47304402202cbb7d2eb42c082d903bd02e36b9d9e27de7c91031af4142b2a3a65aaf2359c10220223babfcdb57e627bb38dd1fa8c01e15174385a2753c488de1dcc202c52acd200121036da7a2dab0e83d157bd3032a7f0dcef0334a1bb7803799acfc05a00713a54480feffffff400e75c43ea8f789371f1e6b2a93b669fd76438852381492a30c32a76314aa27000000006b483045022100924b651d6baeb5a15284f8af3bcedc07d621e0bb05e138aee690d23162717ec702205083db9b0a38568a65d8c1954ee15db5d13e7f13197bb9eecc79fc73be366ffa0121036da7a2dab0e83d157bd3032a7f0dcef0334a1bb7803799acfc05a00713a54480feffffff0200e1f505000000001976a914ac40fbba68294e64b32cbad16e1ba32f9999984a88ac37410601000000001976a914617750dfe4543b8907ba2a86b7591a056cbfaef488acdf030000"
+  },
+  "error": null,
+  "id": null
+}

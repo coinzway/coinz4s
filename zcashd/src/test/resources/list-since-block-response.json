@@ -1,0 +1,51 @@
+{
+  "result": {
+    "transactions": [
+      {
+        "account": "",
+        "address": "tmGCHJK49G9PfmawFMM37oCFW8DtuQogMJB",
+        "category": "generate",
+        "amount": 3.12500000,
+        "vout": 0,
+        "confirmations": 581,
+        "generated": true,
+        "blockhash": "0ee6758d0dc8c56eb1fd4101fc5d5ba5629ec52f234522aee2789cd01b009de0",
+        "blockindex": 0,
+        "blocktime": 1582632277,
+        "expiryheight": 0,
+        "txid": "bd855ebc91a7215d7a69d0a1a899599aa1c46a5f3cd39c488301e15cea3f70ff",
+        "walletconflicts": [
+        ],
+        "time": 1582632216,
+        "timereceived": 1582632216,
+        "vjoinsplit": [
+        ],
+        "size": 90
+      },
+      {
+        "account": "",
+        "address": "tmGCHJK49G9PfmawFMM37oCFW8DtuQogMJB",
+        "category": "generate",
+        "amount": 1.56250000,
+        "vout": 0,
+        "confirmations": 524,
+        "generated": true,
+        "blockhash": "0591e729391e3a0d946cffe8120fbf24294e418be45cac83cdbcbba61a26c02d",
+        "blockindex": 0,
+        "blocktime": 1582632287,
+        "expiryheight": 0,
+        "txid": "f15277c5461fb6eda9b0d96f5c4cfa1d117d4e3c2d21af75628dadd7e9febbff",
+        "walletconflicts": [
+        ],
+        "time": 1582632218,
+        "timereceived": 1582632218,
+        "vjoinsplit": [
+        ],
+        "size": 90
+      }
+    ],
+    "removed": [],
+    "lastblock": "4fed3588db4a6e40597620bd957beb959eacf502291e83a39898a740211727b8"
+  }
+}
+
