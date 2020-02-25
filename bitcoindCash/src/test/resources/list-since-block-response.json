@@ -1,0 +1,43 @@
+{
+  "result": {
+    "transactions": [
+      {
+        "address": "bchreg:qztzxpn4f8zaa2v0cv7c3qcr2l4zaacch5vntkajg7",
+        "category": "immature",
+        "amount": 50.00000000,
+        "label": "",
+        "vout": 0,
+        "confirmations": 58,
+        "generated": true,
+        "blockhash": "65829f7af658b535722a0e3acdfd3f859dcfba096b7149a71146141e194492ed",
+        "blockindex": 0,
+        "blocktime": 1582620561,
+        "txid": "f7ebb3ab5323e129592bad141962f5846f41ec48253a7aaef4f53a46838e75f4",
+        "walletconflicts": [
+        ],
+        "time": 1582620553,
+        "timereceived": 1582620553
+      },
+      {
+        "address": "bchreg:qztzxpn4f8zaa2v0cv7c3qcr2l4zaacch5vntkajg7",
+        "category": "immature",
+        "amount": 50.00000000,
+        "label": "",
+        "vout": 0,
+        "confirmations": 21,
+        "generated": true,
+        "blockhash": "19016bbf6f0256b5d6027cce843e655b1f97ff881f235667995ca36a42197720",
+        "blockindex": 0,
+        "blocktime": 1582620567,
+        "txid": "f839297084e672e66705ab1f9e0f215b2e1f16d5f5e2fdbafd8eed0755930d2d",
+        "walletconflicts": [
+        ],
+        "time": 1582620553,
+        "timereceived": 1582620553
+      }
+    ],
+    "removed": [],
+    "lastblock": "4fed3588db4a6e40597620bd957beb959eacf502291e83a39898a740211727b8"
+  }
+}
+

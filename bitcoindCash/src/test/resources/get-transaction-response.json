@@ -1,0 +1,35 @@
+{
+  "result": {
+    "amount": 0.00000000,
+    "fee": -0.00000225,
+    "confirmations": 0,
+    "trusted": true,
+    "txid": "13041d56a5092621c82ecaf0be83de31222b502512a69fb5e51b940c85bb1d49",
+    "walletconflicts": [
+    ],
+    "time": 1582620580,
+    "timereceived": 1582620580,
+    "details": [
+      {
+        "address": "bchreg:qzx95eta5nz37f0aer5y5ws2keynz8l8xyjlv0ynte",
+        "category": "send",
+        "amount": -3.00000000,
+        "label": "",
+        "vout": 1,
+        "fee": -0.00000225,
+        "abandoned": false
+      },
+      {
+        "address": "bchreg:qzx95eta5nz37f0aer5y5ws2keynz8l8xyjlv0ynte",
+        "category": "receive",
+        "amount": 3.00000000,
+        "label": "",
+        "vout": 1
+      }
+    ],
+    "hex": "0200000001ca3a840a0d530b992a97e8697d5f38584ba9e341836f046947d97877181dee96000000006a4730440220639f184382dc594d9135667614591a38d7c0c5e0678bb83b15e46db3fa99301802206800696f6714ad12a21758276c43d611759026ee8626546967801c90017741aa412103a2c3b8c37b4fa6ab522b54040e86e938b1913f4edfb7b7c5bb922eec2d62e12bfeffffff021f4e2418010000001976a91488780fc33be37bb53a20a6879c3eadd35261a7ec88ac00a3e111000000001976a9148c5a657da4c51f25fdc8e84a3a0ab649311fe73188ac65000000"
+  }
+,
+  "error": null,
+  "id": null
+}

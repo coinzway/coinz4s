@@ -1,0 +1,10 @@
+{
+  "result": {
+    "isvalid": true,
+    "address": "bchreg:qpplagp22z9knx7dunlmf72l7eajclquruvlnr26l8",
+    "scriptPubKey": "76a91443fea02a508b699bcde4ffb4f95ff67b2c7c1c1f88ac",
+    "isscript": false
+  },
+  "error": null,
+  "id": null
+}

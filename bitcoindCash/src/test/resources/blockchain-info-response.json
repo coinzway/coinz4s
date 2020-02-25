@@ -1,0 +1,18 @@
+{
+  "result": {
+    "chain": "test",
+    "blocks": 1361307,
+    "headers": 1361307,
+    "bestblockhash": "000000000997668a7951b9ad0f8cc0bb049984c9000689e243d60a6c2c40fc78",
+    "difficulty": 1,
+    "mediantime": 1582609555,
+    "verificationprogress": 0.9999949181674265,
+    "initialblockdownload": false,
+    "chainwork": "000000000000000000000000000000000000000000000053725870d1cf62aaeb",
+    "size_on_disk": 44980514196,
+    "pruned": false,
+    "warnings": "Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues."
+  },
+  "error": null,
+  "id": null
+}
