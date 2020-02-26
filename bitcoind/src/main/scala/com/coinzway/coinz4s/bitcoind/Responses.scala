@@ -10,8 +10,7 @@ object Responses {
       unconfirmed_balance: BigDecimal,
       txcount: Int,
       keypoololdest: Int,
-      keypoolsize: Int,
-      unlocked_until: Option[Int])
+      keypoolsize: Int)
       extends CorrectResponse
 
   final case class GetNetworkInfo(
