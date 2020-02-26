@@ -38,9 +38,6 @@ class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get new address" in {
       zcashdCashClient.getNewAddress().map(result => result shouldBe Symbol("right"))
     }
-    "get new address with type" in {
-      zcashdCashClient.getNewAddress(None, Some(AddressType.LEGACY)).map(result => result shouldBe Symbol("right"))
-    }
     "send to address" in {
       val sendToAddress = (for {
         newAddress <- NodeResponseT(zcashdCashClient.getNewAddress())
@@ -136,14 +133,6 @@ class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get change address" in {
       val result = zcashdCashClient.getRawChangeAddress(Some(AddressType.BECH32))
       result.map(_ shouldBe Symbol("right"))
-    }
-    "create new wallet in" in {
-      val newWalletName = System.nanoTime().toString
-      val result = zcashdCashClient.createWallet(newWalletName)
-      result.map {
-        case Left(_)          => throw new RuntimeException("test failed")
-        case Right(newWallet) => newWallet.name shouldBe newWalletName
-      }
     }
   }
 

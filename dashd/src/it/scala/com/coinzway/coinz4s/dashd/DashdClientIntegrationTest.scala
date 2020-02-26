@@ -39,9 +39,6 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get new address" in {
       dashdClient.getNewAddress().map(result => result shouldBe Symbol("right"))
     }
-    "get new address with type" in {
-      dashdClient.getNewAddress(None, Some(AddressType.LEGACY)).map(result => result shouldBe Symbol("right"))
-    }
     "send to address" in {
       val sendToAddress = (for {
         newAddress <- NodeResponseT(dashdClient.getNewAddress())
@@ -133,7 +130,7 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers {
       }
     }
     "get change address" in {
-      val result = dashdClient.getRawChangeAddress(Some(AddressType.BECH32))
+      val result = dashdClient.getRawChangeAddress()
       result.map(_ shouldBe Symbol("right"))
     }
   }

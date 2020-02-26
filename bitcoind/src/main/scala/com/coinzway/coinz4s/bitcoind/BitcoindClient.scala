@@ -150,7 +150,7 @@ class BitcoindClient[R[_]](
       .response(as[TransactionHex])
       .send()
 
-  def signRawTransaction(transactionHex: String)(): R[NodeResponse[SignedRawTransaction]] =
+  def signRawTransactionWithWallet(transactionHex: String)(): R[NodeResponse[SignedRawTransaction]] =
     request
       .body(method("signrawtransactionwithwallet", Vector(transactionHex)))
       .response(as[SignedRawTransaction])
@@ -165,7 +165,7 @@ class BitcoindClient[R[_]](
   def sendRawTransaction(inputs: RawTransactionInputs, outputs: Recipients)(): R[NodeResponse[SentTransactionId]] =
     (for {
       rawTransaction <- NodeResponseT(createRawTransaction(inputs, outputs))
-      signedTransaction <- NodeResponseT(signRawTransaction(rawTransaction.hex))
+      signedTransaction <- NodeResponseT(signRawTransactionWithWallet(rawTransaction.hex))
       sentTransactionId <- NodeResponseT(sendRawTransaction(signedTransaction.hex))
     } yield sentTransactionId).value
 
