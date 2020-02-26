@@ -6,10 +6,13 @@ This project attempts to create a common interface for interacting with multiple
 
 - [x] BTC
 - [x] LTC
-- [ ] BCH
-- [ ] DOGE
-- [ ] DASH
-- [ ] ZEC
+- [x] BCH
+- [x] DOGE
+- [x] DASH
+- [x] ZEC
+
+# Planned support
+
 - [ ] XMR
 - [ ] EOS
 - [ ] ETH
