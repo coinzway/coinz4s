@@ -30,24 +30,16 @@ class DogecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
     "get blockchain info" in {
       dogecoindClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
-    "estimate smart fee" in {
-      dogecoindClient.estimateSmartFee(6, Some(EstimateMode.CONSERVATIVE)).map { result =>
-        result shouldBe Symbol("right")
-      }
-    }
     "list unspent transactions" in {
       dogecoindClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))
     }
     "get new address" in {
       dogecoindClient.getNewAddress().map(result => result shouldBe Symbol("right"))
     }
-    "get new address with type" in {
-      dogecoindClient.getNewAddress(None, Some(AddressType.LEGACY)).map(result => result shouldBe Symbol("right"))
-    }
     "send to address" in {
       val sendToAddress = (for {
         newAddress <- NodeResponseT(dogecoindClient.getNewAddress())
-        sendToAddress <- NodeResponseT(dogecoindClient.sendToAddress(newAddress.address, 10, "comment", "commentTo"))
+        sendToAddress <- NodeResponseT(dogecoindClient.sendToAddress(newAddress.address, 1000, "comment", "commentTo"))
       } yield sendToAddress).value
 
       sendToAddress.map(result => result shouldBe Symbol("right"))
@@ -94,7 +86,7 @@ class DogecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
       val sendMany = (for {
         newAddress1 <- NodeResponseT(dogecoindClient.getNewAddress())
         newAddress2 <- NodeResponseT(dogecoindClient.getNewAddress())
-        sendMany <- NodeResponseT(dogecoindClient.sendMany(recipients(1, newAddress1, newAddress2)))
+        sendMany <- NodeResponseT(dogecoindClient.sendMany(recipients(10000, newAddress1, newAddress2)))
       } yield sendMany).value
 
       sendMany.map(result => result shouldBe Symbol("right"))
