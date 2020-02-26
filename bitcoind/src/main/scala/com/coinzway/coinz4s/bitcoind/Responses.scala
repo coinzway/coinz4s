@@ -30,8 +30,8 @@ object Responses {
       size: Int,
       bytes: Int,
       usage: Int,
-      maxmempool: Int,
-      mempoolminfee: Int)
+      maxmempool: Option[Int],
+      mempoolminfee: Option[Int])
       extends CorrectResponse
 
   final case class GetBlockChainInfo(
@@ -40,7 +40,6 @@ object Responses {
       headers: Int,
       bestblockhash: String,
       difficulty: BigDecimal,
-      mediantime: Int,
       verificationprogress: BigDecimal,
       chainwork: String,
       pruned: Boolean,
@@ -63,7 +62,7 @@ object Responses {
       amount: BigDecimal,
       confirmations: Long,
       spendable: Boolean,
-      solvable: Boolean)
+      solvable: Option[Boolean])
 
   final case class GetNewAddress(address: String) extends CorrectResponse
 
@@ -126,7 +125,7 @@ object Responses {
 
   final case class RawTransaction(
       txid: String,
-      size: Int,
+      size: Option[Int],
       vin: List[Input],
       vout: List[TransactionOutput],
       confirmations: Option[Long])

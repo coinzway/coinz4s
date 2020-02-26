@@ -52,14 +52,14 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
   it should "return memPoolInfo" in {
     zcashdCashClient.memPoolInfo match {
       case Left(_)            => throw new RuntimeException("unexpected zcashd response")
-      case Right(memPoolInfo) => memPoolInfo.size shouldBe 0
+      case Right(memPoolInfo) => memPoolInfo.size shouldBe 1
     }
   }
 
   it should "return blockchainInfo" in {
     zcashdCashClient.blockchainInfo match {
       case Left(_)               => throw new RuntimeException("unexpected zcashd response")
-      case Right(blockchainInfo) => blockchainInfo.chain shouldBe "test"
+      case Right(blockchainInfo) => blockchainInfo.chain shouldBe "regtest"
     }
   }
 
@@ -68,7 +68,7 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
       case Left(_) => throw new RuntimeException("unexpected zcashd response")
       case Right(unspentTransactions) =>
         unspentTransactions.unspentTransactions.size shouldBe 2
-        unspentTransactions.unspentTransactions.head.address shouldBe "bchreg:qztzxpn4f8zaa2v0cv7c3qcr2l4zaacch5vntkajg7"
+        unspentTransactions.unspentTransactions.head.address shouldBe "tmGCHJK49G9PfmawFMM37oCFW8DtuQogMJB"
     }
   }
 
@@ -135,23 +135,23 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
   }
 
   it should "get transaction by id" in {
-    val txid = "13041d56a5092621c82ecaf0be83de31222b502512a69fb5e51b940c85bb1d49"
+    val txid = "34572253f55579876a53945077aca40b3a27b06dbe1ecb4a4f5e8d453b64f2cf"
     zcashdCashClient.getTransaction(txid) match {
       case Left(_) => throw new RuntimeException("unexpected zcashd response")
       case Right(response) =>
-        response.fee shouldBe Some(BigDecimal(-0.00033200))
+        response.fee shouldBe Some(BigDecimal(-0.00000373))
         response.details should have size 2
     }
   }
 
   it should "get raw transaction by id" in {
-    val txid = "4528087ee62cc971be2d8dcf6c4b39d5603a0bc66cfb16c6f2448ea52f3cda3c"
+    val txid = "34572253f55579876a53945077aca40b3a27b06dbe1ecb4a4f5e8d453b64f2cf"
     zcashdCashClient.getRawTransactionVerbose(txid) match {
       case Left(_) => throw new RuntimeException("unexpected zcashd response")
       case Right(response) =>
-        response.vin should have size 1
+        response.vin should have size 2
         val txId = response.vin.head.asInstanceOf[TransactionInput].txid
-        txId shouldBe "96ee1d187778d94769046f8341e3a94b58385f7d69e8972a990b530d0a843aca"
+        txId shouldBe "315445c55750a5296f605f65f08bba44d5b373ce25dbc2b4a7f9482b4eea679e"
     }
   }
 
@@ -162,7 +162,7 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
       case Right(response) =>
         response.vin should have size 1
         val coinbase = response.vin.head.asInstanceOf[CoinbaseInput].coinbase
-        coinbase shouldBe "0297010101"
+        coinbase shouldBe "02de010101"
     }
   }
 
