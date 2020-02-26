@@ -19,7 +19,7 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port/wallet/" =>
       Response.ok(loadJsonResponseFromTestData(extractMethod(body.s)))
   }
-  val bitcoinClient: BitcoindClient[Id] = new BitcoindClient(user, password, host, port)
+  val bitcoinClient: BitcoindClient[Id] = new BitcoindClient(user, password, host, port, Some(""))
 
   it should "return walletinfo" in {
     bitcoinClient.walletInfo match {

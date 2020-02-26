@@ -17,7 +17,7 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
   val port = 1337
 
   implicit val stubBackend: SttpBackendStub[Id, Nothing] = SttpBackendStub.synchronous.whenRequestMatchesPartial {
-    case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port/wallet/" =>
+    case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port" =>
       Response.ok(loadJsonResponseFromTestData(extractMethod(body.s)))
   }
   val zcashdCashClient: ZcashdCashClient[Id] = new ZcashdCashClient(user, password, host, port)
@@ -227,13 +227,6 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     zcashdCashClient.validateAddress(addr) match {
       case Left(_)             => throw new RuntimeException("unexpected zcashd response")
       case Right(validAddress) => validAddress.isvalid shouldBe true
-    }
-  }
-  "createwallet" should "return the name of created wallet" in {
-    val walletName = "foo"
-    zcashdCashClient.createWallet(walletName) match {
-      case Left(_)     => throw new RuntimeException("unexpected zcashd response")
-      case Right(resp) => resp.name shouldBe walletName
     }
   }
 

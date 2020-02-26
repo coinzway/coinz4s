@@ -8,6 +8,6 @@ class LitecoindClient[R[_]](
     password: String,
     host: String,
     port: Int,
-    wallet: Option[String] = None
+    wallet: Option[String]
   )(implicit sttpBackend: SttpBackend[R, Nothing])
     extends BitcoindClient(user, password, host, port, wallet) {}

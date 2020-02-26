@@ -15,7 +15,7 @@ import scala.concurrent.Future
 class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
-  val bitcoinClient: BitcoindClient[Future] = new BitcoindClient("user", "password", "bitcoind", 18443)
+  val bitcoinClient: BitcoindClient[Future] = new BitcoindClient("user", "password", "bitcoind", 18443, Some(""))
 
   "BitcoindClient" should {
     "get wallet info" in {

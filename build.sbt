@@ -23,7 +23,9 @@ lazy val root = (project in file("."))
     bitcoind,
     litecoind,
     bitcoindCash,
-    dogecoind
+    dogecoind,
+    dashd,
+    zcashd
   )
 
 lazy val dependencies = {

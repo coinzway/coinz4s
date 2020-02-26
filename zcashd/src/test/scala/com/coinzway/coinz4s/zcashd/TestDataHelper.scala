@@ -56,7 +56,6 @@ trait TestDataHelper {
           case "sendrawtransaction"                                 => TestData.sendRawTransaction
           case "validateaddress" if params.contains("invalid-json") => TestData.invalidJsonResponse
           case "validateaddress"                                    => TestData.validateAddress
-          case "createwallet"                                       => TestData.createWalletResponse
 
           case _ => JsNumber(-1)
         }

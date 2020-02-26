@@ -14,18 +14,17 @@ class BitcoindClient[R[_]](
     password: String,
     host: String,
     port: Int,
-    wallet: Option[String] = None
+    wallet: Option[String]
   )(implicit sttpBackend: SttpBackend[R, Nothing])
     extends JsonFormats {
   implicit private val monadError: MonadError[R] = sttpBackend.responseMonad
 
   private val request = {
-    val defaultWalletName = ""
-    val walletName = wallet.getOrElse(defaultWalletName)
-    val uri = uri"http://$host:$port/wallet/$walletName"
+    val walletPath = wallet.map(w => s"/wallet/$w").getOrElse("")
+    val uri = s"http://$host:$port$walletPath"
     sttp.auth
       .basic(user, password)
-      .post(uri)
+      .post(Uri.parse(uri).getOrElse(throw new RuntimeException(s"invalid wallet connection url: $uri")))
   }
 
   private def as[T <: CorrectResponse](implicit reader: JsonReader[T]): ResponseAs[NodeResponse[T], Nothing] =

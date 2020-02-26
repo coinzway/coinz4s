@@ -15,7 +15,7 @@ import scala.concurrent.Future
 class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
-  val litecoindClient: LitecoindClient[Future] = new LitecoindClient("user", "password", "litecoind", 19332)
+  val litecoindClient: LitecoindClient[Future] = new LitecoindClient("user", "password", "litecoind", 19332, None)
 
   "LitecoindClient" should {
     "get wallet info" in {

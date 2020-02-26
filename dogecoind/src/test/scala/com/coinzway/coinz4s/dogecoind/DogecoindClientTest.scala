@@ -17,7 +17,7 @@ class DogecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
   val port = 1337
 
   implicit val stubBackend: SttpBackendStub[Id, Nothing] = SttpBackendStub.synchronous.whenRequestMatchesPartial {
-    case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port/wallet/" =>
+    case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port" =>
       Response.ok(loadJsonResponseFromTestData(extractMethod(body.s)))
   }
   val dogecoindClient: DogecoindClient[Id] = new DogecoindClient(user, password, host, port)
