@@ -1,4 +1,4 @@
-package com.coinzway.coinz4s.bitcoind
+package com.coinzway.coinz4s.core
 
 object ClientObjects {
   final case class Recipients(value: Map[String, BigDecimal])
