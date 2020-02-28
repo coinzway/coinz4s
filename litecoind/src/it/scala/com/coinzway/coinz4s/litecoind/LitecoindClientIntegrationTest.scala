@@ -5,6 +5,7 @@ import akka.util.ByteString
 import com.coinzway.coinz4s.bitcoind.ClientObjects._
 import com.coinzway.coinz4s.bitcoind.Responses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
+import com.coinzway.coinz4s.testutils.IntegrationTestConfig
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend
 import com.softwaremill.sttp.{MonadError, SttpBackend}
 import org.scalatest.matchers.should.Matchers
@@ -12,10 +13,12 @@ import org.scalatest.wordspec.AsyncWordSpec
 
 import scala.concurrent.Future
 
-class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers {
+class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers with IntegrationTestConfig {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
-  val litecoindClient: LitecoindClient[Future] = new LitecoindClient("user", "password", "litecoind", 19332, None)
+
+  val litecoindClient: LitecoindClient[Future] =
+    new LitecoindClient(conf.user, conf.password, conf.host, conf.port, Some(""))
 
   "LitecoindClient" should {
     "get wallet info" in {

@@ -5,6 +5,7 @@ import akka.util.ByteString
 import com.coinzway.coinz4s.bitcoind.ClientObjects._
 import com.coinzway.coinz4s.bitcoind.Responses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
+import com.coinzway.coinz4s.testutils.IntegrationTestConfig
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend
 import com.softwaremill.sttp.{MonadError, SttpBackend}
 import org.scalatest.matchers.should.Matchers
@@ -12,10 +13,12 @@ import org.scalatest.wordspec.AsyncWordSpec
 
 import scala.concurrent.Future
 
-class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers {
+class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers with IntegrationTestConfig {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
-  val bitcoinClient: BitcoindClient[Future] = new BitcoindClient("user", "password", "bitcoind", 18443, Some(""))
+
+  val bitcoinClient: BitcoindClient[Future] =
+    new BitcoindClient(conf.user, conf.password, conf.host, conf.port, Some(""))
 
   "BitcoindClient" should {
     "get wallet info" in {

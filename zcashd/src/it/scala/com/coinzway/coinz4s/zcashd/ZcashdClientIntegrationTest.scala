@@ -5,6 +5,7 @@ import akka.util.ByteString
 import com.coinzway.coinz4s.bitcoind.ClientObjects._
 import com.coinzway.coinz4s.bitcoind.Responses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
+import com.coinzway.coinz4s.testutils.IntegrationTestConfig
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend
 import com.softwaremill.sttp.{MonadError, SttpBackend}
 import org.scalatest.matchers.should.Matchers
@@ -12,12 +13,12 @@ import org.scalatest.wordspec.AsyncWordSpec
 
 import scala.concurrent.Future
 
-class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers {
+class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers with IntegrationTestConfig {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
   implicit val monadError: MonadError[Future] = akkaHttpBackend.responseMonad
 
   val zcashdCashClient: ZcashdCashClient[Future] =
-    new ZcashdCashClient("user", "password", "zcashd", 18344)
+    new ZcashdCashClient(conf.user, conf.password, conf.host, conf.port)
 
   "ZcashdClient" should {
     "get wallet info" in {

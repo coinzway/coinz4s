@@ -17,10 +17,10 @@ class BitcoindCashClientTest extends AnyFlatSpec with Matchers with TestDataHelp
   val port = 1337
 
   implicit val stubBackend: SttpBackendStub[Id, Nothing] = SttpBackendStub.synchronous.whenRequestMatchesPartial {
-    case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port" =>
+    case RequestT(Method.POST, uri, body: StringBody, _, _, _, _) if uri == uri"http://$host:$port/wallet/" =>
       Response.ok(loadJsonResponseFromTestData(extractMethod(body.s)))
   }
-  val bitcoindCashClient: BitcoindCashClient[Id] = new BitcoindCashClient(user, password, host, port)
+  val bitcoindCashClient: BitcoindCashClient[Id] = new BitcoindCashClient(user, password, host, port, Some(""))
 
   it should "return walletinfo" in {
     bitcoindCashClient.walletInfo match {

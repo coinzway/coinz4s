@@ -7,6 +7,7 @@ class BitcoindCashClient[R[_]](
     user: String,
     password: String,
     host: String,
-    port: Int
+    port: Int,
+    wallet: Option[String]
   )(implicit sttpBackend: SttpBackend[R, Nothing])
-    extends BitcoindClient(user, password, host, port, None) {}
+    extends BitcoindClient(user, password, host, port, wallet) {}
