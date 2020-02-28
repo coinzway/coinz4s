@@ -14,8 +14,8 @@ object ClientObjects {
   }
 
   object AddressType extends Enumeration {
-    val LEGACY = Value("legacy")
-    val P2SH_SEGWIT = Value("p2sh-segwit")
-    val BECH32 = Value("bech32")
+    val LEGACY: AddressType.Value = Value("legacy")
+    val P2SH_SEGWIT: AddressType.Value = Value("p2sh-segwit")
+    val BECH32: AddressType.Value = Value("bech32")
   }
 }

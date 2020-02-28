@@ -6,22 +6,28 @@ import spray.json._
 
 import scala.util.{Failure, Success, Try}
 
-class RpcClient[R[_]](    user: String,
-                       password: String,
-                       host: String,
-                       port: Int,
-                       wallet: Option[String])(implicit sttpBackend: SttpBackend[R, Nothing]) {
+class RpcClient[R[_]](
+    user: String,
+    password: String,
+    host: String,
+    port: Int,
+    wallet: Option[String]
+  )(implicit sttpBackend: SttpBackend[R, Nothing]) {
   implicit private val monadError: MonadError[R] = sttpBackend.responseMonad
   private val walletPath = wallet.map(w => s"/wallet/$w").getOrElse("")
   private val uri = s"http://$host:$port$walletPath"
 
-  def request[T <: CorrectResponse](methodName: String, params: Vector[Any])(implicit jsonReader: JsonReader[T]): R[NodeResponse[T]] = {
+  def request[T <: CorrectResponse](
+      methodName: String,
+      params: Vector[Any]
+    )(implicit jsonReader: JsonReader[T]
+    ): R[NodeResponse[T]] = {
     import com.softwaremill.sttp.monadSyntax._
-     sttp.auth
-       .basic(user, password)
-       .post(Uri.parse(uri).getOrElse(throw new RuntimeException(s"invalid wallet connection url: $uri")))
-       .body(method(methodName, params))
-       .response(as[T])
+    sttp.auth
+      .basic(user, password)
+      .post(Uri.parse(uri).getOrElse(throw new RuntimeException(s"invalid wallet connection url: $uri")))
+      .body(method(methodName, params))
+      .response(as[T])
       .send()
       .map(response => response.body.left.map(error => GeneralErrorResponse(error)).joinRight)
 

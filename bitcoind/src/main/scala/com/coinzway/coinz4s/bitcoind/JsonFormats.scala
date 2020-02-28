@@ -6,7 +6,6 @@ import spray.json._
 trait JsonFormats extends DefaultJsonProtocol {
   implicit val AddressFormat: RootJsonFormat[Address] = jsonFormat3(Address)
   implicit val NetworkFormat: RootJsonFormat[Network] = jsonFormat5(Network)
-  implicit val SoftforkFormat: RootJsonFormat[Softfork] = jsonFormat7(Softfork)
 
   implicit val GetWalletInfoFormat: RootJsonFormat[GetWalletInfo] = jsonFormat6(GetWalletInfo)
   implicit val GetNetworkInfoFormat: RootJsonFormat[GetNetworkInfo] = jsonFormat9(GetNetworkInfo)

@@ -144,4 +144,17 @@ object Responses {
 
   final case class ValidateAddress(isvalid: Boolean) extends CorrectResponse
   final case class CreateWallet(name: String) extends CorrectResponse
+
+  final case class Address(
+      address: String,
+      port: Int,
+      score: Int)
+
+  final case class Network(
+      name: String,
+      limited: Boolean,
+      reachable: Boolean,
+      proxy: String,
+      localaddress: Option[Vector[Address]])
+
 }

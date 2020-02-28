@@ -43,7 +43,10 @@ class BitcoindClient[R[_]](
       maximumConfirmations: Option[Int] = None
     )(
     ): R[NodeResponse[UnspentTransactions]] =
-    client.request[UnspentTransactions]("listunspent", Vector(minimumConfirmations.getOrElse(1), maximumConfirmations.getOrElse(9999999)))
+    client.request[UnspentTransactions](
+      "listunspent",
+      Vector(minimumConfirmations.getOrElse(1), maximumConfirmations.getOrElse(9999999))
+    )
 
   def getNewAddress(): R[NodeResponse[GetNewAddress]] =
     client.request[GetNewAddress]("getnewaddress", Vector.empty)
