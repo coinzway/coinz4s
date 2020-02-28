@@ -3,7 +3,7 @@ package com.coinzway.coinz4s.litecoind
 import akka.stream.scaladsl.Source
 import akka.util.ByteString
 import com.coinzway.coinz4s.core.ClientObjects._
-import com.coinzway.coinz4s.bitcoind.Responses.{GetNewAddress, UnspentTransaction}
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
 import com.coinzway.coinz4s.testutils.IntegrationTestConfig
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend
@@ -97,7 +97,7 @@ class LitecoindClientIntegrationTest extends AsyncWordSpec with Matchers with In
       val sendMany = (for {
         newAddress1 <- NodeResponseT(litecoindClient.getNewAddress())
         newAddress2 <- NodeResponseT(litecoindClient.getNewAddress())
-        sendMany <- NodeResponseT(litecoindClient.sendMany(recipients(1, newAddress1, newAddress2)))
+        sendMany <- NodeResponseT(litecoindClient.sendMany(recipients(5, newAddress1, newAddress2)))
       } yield sendMany).value
 
       sendMany.map(result => result shouldBe Symbol("right"))

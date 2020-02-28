@@ -1,8 +1,8 @@
-package com.coinzway.coinz4s.bitcoind
+package com.coinzway.coinz4s.core.rpc.bitcoindbase
 
 import com.coinzway.coinz4s.core.BaseResponses._
 
-object Responses {
+object BitcoindBaseRpcResponses {
 
   final case class GetWalletInfo(
       walletversion: Int,
@@ -43,12 +43,6 @@ object Responses {
       chainwork: String,
       pruned: Boolean,
       pruneheight: Option[Int])
-      extends CorrectResponse
-
-  final case class EstimateSmartFee(
-      feerate: Option[BigDecimal],
-      errors: Option[List[String]],
-      blocks: Int)
       extends CorrectResponse
 
   final case class UnspentTransactions(unspentTransactions: Vector[UnspentTransaction]) extends CorrectResponse

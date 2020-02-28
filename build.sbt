@@ -88,7 +88,6 @@ lazy val litecoind = (project in file("litecoind"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(bitcoind)
   .dependsOn(testUtils)
 
 lazy val bitcoindCash = (project in file("bitcoindCash"))
@@ -99,7 +98,6 @@ lazy val bitcoindCash = (project in file("bitcoindCash"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(bitcoind)
   .dependsOn(testUtils)
 
 lazy val dogecoind = (project in file("dogecoind"))
@@ -110,7 +108,6 @@ lazy val dogecoind = (project in file("dogecoind"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(bitcoind)
   .dependsOn(testUtils)
 
 lazy val dashd = (project in file("dashd"))
@@ -121,7 +118,6 @@ lazy val dashd = (project in file("dashd"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(bitcoind)
   .dependsOn(testUtils)
 
 lazy val zcashd = (project in file("zcashd"))
@@ -132,5 +128,4 @@ lazy val zcashd = (project in file("zcashd"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(bitcoind)
   .dependsOn(testUtils)

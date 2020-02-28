@@ -1,6 +1,8 @@
 package com.coinzway.coinz4s.dogecoind
 
-import com.coinzway.coinz4s.bitcoind.BitcoindClient
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpc
+import com.coinzway.coinz4s.core.rpc.RpcClient
+import com.coinzway.coinz4s.core.rpc.noWalletbase.NoWalletBaseRpc
 import com.softwaremill.sttp.SttpBackend
 
 class DogecoindClient[R[_]](
@@ -8,5 +10,8 @@ class DogecoindClient[R[_]](
     password: String,
     host: String,
     port: Int
-  )(implicit sttpBackend: SttpBackend[R, Nothing])
-    extends BitcoindClient(user, password, host, port, None) {}
+  )(implicit val sttpBackend: SttpBackend[R, Nothing])
+    extends BitcoindBaseRpc[R]
+    with NoWalletBaseRpc[R] {
+  val client = new RpcClient(user, password, host, port, None)
+}

@@ -1,7 +1,7 @@
 package com.coinzway.coinz4s.dashd
 
 import com.coinzway.coinz4s.core.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
-import com.coinzway.coinz4s.bitcoind.Responses.{CoinbaseInput, TransactionInput}
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{CoinbaseInput, TransactionInput}
 import com.coinzway.coinz4s.core.BaseResponses.GeneralErrorResponse
 import com.coinzway.coinz4s.core.ClientObjects
 import com.softwaremill.sttp._
@@ -60,15 +60,6 @@ class DashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     dashdClient.blockchainInfo match {
       case Left(_)               => throw new RuntimeException("unexpected dogecoind response")
       case Right(blockchainInfo) => blockchainInfo.chain shouldBe "test"
-    }
-  }
-
-  it should "estimate smart fee" in {
-    dashdClient.estimateSmartFee(6) match {
-      case Left(_) => throw new RuntimeException("unexpected dogecoind response")
-      case Right(fee) =>
-        fee.feerate shouldBe Some(0.00010244)
-        fee.blocks shouldBe 6
     }
   }
 
@@ -212,7 +203,7 @@ class DashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     val hex = "02000000000180969800000000001976a914f5b32cc7579d678b60780846128b0f98f74cd10e88ac00000000"
     val signedHex =
       "02000000010205704f11711b204e691c257ac7ab84a0014e38dda5c35e1936d11fc7030432000000004948304502210087962368e1f03ddc03b96ef934d2058abe080e9f551f69929c75f2fe7324036e02201369850a0b1c4f7b3148631f3c50063644d7959abb5e97cda9db43dd9b6e867d01ffffffff0160720195000000001976a914835328a1b2103387912fcf054cc138c38064b08b88ac00000000"
-    dashdClient.signRawTransactionWithWallet(hex) match {
+    dashdClient.signRawTransaction(hex) match {
       case Left(_) => throw new RuntimeException("unexpected dogecoind response")
       case Right(signedRawTransaction) =>
         signedRawTransaction.hex shouldBe signedHex

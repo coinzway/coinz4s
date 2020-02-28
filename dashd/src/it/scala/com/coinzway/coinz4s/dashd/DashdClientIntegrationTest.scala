@@ -3,7 +3,7 @@ package com.coinzway.coinz4s.dashd
 import akka.stream.scaladsl.Source
 import akka.util.ByteString
 import com.coinzway.coinz4s.core.ClientObjects._
-import com.coinzway.coinz4s.bitcoind.Responses.{GetNewAddress, UnspentTransaction}
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
 import com.coinzway.coinz4s.testutils.IntegrationTestConfig
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend
@@ -30,9 +30,6 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integr
     }
     "get blockchain info" in {
       dashdClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
-    }
-    "estimate smart fee" in {
-      dashdClient.estimateSmartFee(6, Some(EstimateMode.CONSERVATIVE)).map(result => result shouldBe Symbol("right"))
     }
     "list unspent transactions" in {
       dashdClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))

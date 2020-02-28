@@ -23,7 +23,7 @@ object TestData {
   val listSinceBlockResponse: JsValue = readJson("list-since-block-response.json")
   val sendManyResponse: JsValue = readJson("send-many-response.json")
   val createRawTransaction: JsValue = readJson("create-raw-transaction.json")
-  val signRawTransactionWithWallet: JsValue = readJson("sign-raw-transaction-with-wallet.json")
+  val signRawTransaction: JsValue = readJson("sign-raw-transaction-with-wallet.json")
   val sendRawTransaction: JsValue = readJson("send-raw-transaction.json")
   val estimateSmartFee: JsValue = readJson("estimate-smart-fee-response.json")
   val validateAddress: JsValue = readJson("validate-address-response.json")

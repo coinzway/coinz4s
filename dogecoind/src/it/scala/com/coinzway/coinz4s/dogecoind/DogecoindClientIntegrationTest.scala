@@ -3,7 +3,7 @@ package com.coinzway.coinz4s.dogecoind
 import akka.stream.scaladsl.Source
 import akka.util.ByteString
 import com.coinzway.coinz4s.core.ClientObjects._
-import com.coinzway.coinz4s.bitcoind.Responses.{GetNewAddress, UnspentTransaction}
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{GetNewAddress, UnspentTransaction}
 import com.coinzway.coinz4s.core.NodeResponseT
 import com.coinzway.coinz4s.testutils.IntegrationTestConfig
 import com.softwaremill.sttp.akkahttp.AkkaHttpBackend

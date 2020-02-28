@@ -1,7 +1,7 @@
 package com.coinzway.coinz4s.litecoind
 
 import com.coinzway.coinz4s.core.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
-import com.coinzway.coinz4s.bitcoind.Responses.{CoinbaseInput, TransactionInput}
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{CoinbaseInput, TransactionInput}
 import com.coinzway.coinz4s.core.BaseResponses.GeneralErrorResponse
 import com.coinzway.coinz4s.core.ClientObjects
 import com.softwaremill.sttp._

@@ -1,9 +1,9 @@
-package com.coinzway.coinz4s.bitcoind
+package com.coinzway.coinz4s.core.rpc.bitcoindbase
 
-import com.coinzway.coinz4s.bitcoind.Responses._
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses._
 import spray.json._
 
-trait JsonFormats extends DefaultJsonProtocol {
+trait BitcoindBaseRpcJsonFormats extends DefaultJsonProtocol {
   implicit val AddressFormat: RootJsonFormat[Address] = jsonFormat3(Address)
   implicit val NetworkFormat: RootJsonFormat[Network] = jsonFormat5(Network)
 
@@ -46,7 +46,6 @@ trait JsonFormats extends DefaultJsonProtocol {
   )
 
   implicit val SignedRawTransactionFormat: RootJsonFormat[SignedRawTransaction] = jsonFormat2(SignedRawTransaction)
-  implicit val EstimateSmartFeeFormat: RootJsonFormat[EstimateSmartFee] = jsonFormat3(EstimateSmartFee)
   implicit val CreateWalletFormat: RootJsonFormat[CreateWallet] = jsonFormat1(CreateWallet)
 
   implicit object TransactionHexFormat extends RootJsonReader[TransactionHex] {

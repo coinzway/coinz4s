@@ -1,6 +1,9 @@
 package com.coinzway.coinz4s.zcashd
 
-import com.coinzway.coinz4s.bitcoind.BitcoindClient
+import com.coinzway.coinz4s.core.rpc.RpcClient
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpc
+import com.coinzway.coinz4s.core.rpc.estimatesmartfee.EstimateSmartFeeRpc
+import com.coinzway.coinz4s.core.rpc.noWalletbase.NoWalletBaseRpc
 import com.softwaremill.sttp.SttpBackend
 
 class ZcashdCashClient[R[_]](
@@ -8,5 +11,9 @@ class ZcashdCashClient[R[_]](
     password: String,
     host: String,
     port: Int
-  )(implicit sttpBackend: SttpBackend[R, Nothing])
-    extends BitcoindClient(user, password, host, port, None) {}
+  )(implicit val sttpBackend: SttpBackend[R, Nothing])
+    extends BitcoindBaseRpc[R]
+    with EstimateSmartFeeRpc[R]
+    with NoWalletBaseRpc[R] {
+  val client = new RpcClient(user, password, host, port, None)
+}
