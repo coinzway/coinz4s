@@ -12,6 +12,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AsyncWordSpec
 
 import scala.concurrent.Future
+import scala.math.BigDecimal.RoundingMode
 
 class DashdClientIntegrationTest extends AsyncWordSpec with Matchers with IntegrationTestConfig {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
@@ -99,8 +100,8 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integr
         newAddress2 <- NodeResponseT(dashdClient.getNewAddress())
         createRawTransaction <- NodeResponseT(
           dashdClient.createRawTransaction(
-            rawTransactionInputs(input.unspentTransactions.head),
-            recipients(input.unspentTransactions.head.amount, newAddress1, newAddress2)
+            rawTransactionInputs(getFirstSpendable(input.unspentTransactions)),
+            recipients(getFirstSpendable(input.unspentTransactions).amount, newAddress1, newAddress2)
           )
         )
       } yield createRawTransaction).value
@@ -114,8 +115,8 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integr
         newAddress2 <- NodeResponseT(dashdClient.getNewAddress())
         sendRawTransaction <- NodeResponseT(
           dashdClient.sendRawTransaction(
-            rawTransactionInputs(input.unspentTransactions.head),
-            recipients(input.unspentTransactions.head.amount, newAddress1, newAddress2)
+            rawTransactionInputs(getFirstSpendable(input.unspentTransactions)),
+            recipients(getFirstSpendable(input.unspentTransactions).amount, newAddress1, newAddress2)
           )
         )
       } yield sendRawTransaction).value
@@ -136,8 +137,11 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integr
   private def rawTransactionInputs(unspentTransaction: UnspentTransaction): RawTransactionInputs =
     RawTransactionInputs(List(RawTransactionInput(unspentTransaction.txid, unspentTransaction.vout)))
 
+  private def getFirstSpendable(unspentTransactions: Vector[UnspentTransaction]): UnspentTransaction =
+    unspentTransactions.find(utxo => utxo.amount > 1 && utxo.spendable).get
+
   private def recipients(amount: BigDecimal, addresses: GetNewAddress*): Recipients = {
-    val amountToSplit = (amount - 0.01) / addresses.length
+    val amountToSplit = ((amount - 0.01) / addresses.length).setScale(8, RoundingMode.DOWN)
     Recipients(addresses.map(address => address.address -> amountToSplit).toMap)
   }
 }

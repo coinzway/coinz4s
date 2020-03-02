@@ -12,6 +12,7 @@ import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AsyncWordSpec
 
 import scala.concurrent.Future
+import scala.math.BigDecimal.RoundingMode
 
 class BitcoindCashClientIntegrationTest extends AsyncWordSpec with Matchers with IntegrationTestConfig {
   implicit val akkaHttpBackend: SttpBackend[Future, Source[ByteString, Any]] = AkkaHttpBackend()
@@ -152,7 +153,7 @@ class BitcoindCashClientIntegrationTest extends AsyncWordSpec with Matchers with
     RawTransactionInputs(List(RawTransactionInput(unspentTransaction.txid, unspentTransaction.vout)))
 
   private def recipients(amount: BigDecimal, addresses: GetNewAddress*): Recipients = {
-    val amountToSplit = (amount - 0.01) / addresses.length
+    val amountToSplit = ((amount - 0.01) / addresses.length).setScale(8, RoundingMode.DOWN)
     Recipients(addresses.map(address => address.address -> amountToSplit).toMap)
   }
 }
