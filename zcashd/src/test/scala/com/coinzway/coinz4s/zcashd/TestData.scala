@@ -12,7 +12,7 @@ object TestData {
   val getNewAddressResponse: JsValue = readJson("get-new-address-response.json")
   val getRawChangeAddressResponse: JsValue = readJson("get-raw-change-address-response.json")
   val sendToAddressResponse: JsValue = readJson("sendtoaddress-response.json")
-  val generateToAddressResponse: JsValue = readJson("generate-to-address-response.json")
+  val generateResponse: JsValue = readJson("generate-response.json")
   val parseErrorResponse: JsValue = readJson("parse-error-response.json")
   val insufficientFundsResponse: JsValue = readJson("insufficient-funds-response.json")
   val setTxFeeResponse: JsValue = readJson("set-tx-fee-response.json")

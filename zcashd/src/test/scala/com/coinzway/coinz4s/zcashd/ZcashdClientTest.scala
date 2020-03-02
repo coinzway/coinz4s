@@ -26,13 +26,13 @@ class ZcashdClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     zcashdCashClient.walletInfo match {
       case Left(_) => throw new RuntimeException("unexpected zcashd response")
       case Right(walletInfo) =>
-        walletInfo.balance shouldBe BigDecimal("3306.79687127")
+        walletInfo.balance shouldBe BigDecimal("3364.30185250")
         walletInfo.unconfirmed_balance shouldBe BigDecimal(0)
     }
   }
 
   it should "generate blocks" in {
-    zcashdCashClient.generatetoaddress(2, "mxC1MksGZQAARADNQutrT5FPVn76bqmgZW") match {
+    zcashdCashClient.generate(2) match {
       case Left(x) => throw new RuntimeException("unexpected zcashd response " + x)
       case Right(generated) =>
         generated.hashes should contain theSameElementsAs Seq(

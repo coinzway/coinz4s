@@ -57,9 +57,6 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
   def setTxFee(btcPerKb: BigDecimal)(): R[NodeResponse[SetTxFee]] =
     client.request[SetTxFee]("settxfee", Vector(btcPerKb))
 
-  def generatetoaddress(number: Int, address: String)(): R[NodeResponse[HeaderHashes]] =
-    client.request[HeaderHashes]("generatetoaddress", Vector(number, address))
-
   def getTransaction(txid: String)(): R[NodeResponse[Transaction]] =
     client.request[Transaction]("gettransaction", Vector(txid))
 

@@ -50,13 +50,8 @@ class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integ
     "set tx fee" in {
       zcashdCashClient.setTxFee(0.05).map(result => result shouldBe Symbol("right"))
     }
-    "generatetoaddress" in {
-      val res = (for {
-        newAddress <- NodeResponseT(zcashdCashClient.getNewAddress())
-        generateResult <- NodeResponseT(zcashdCashClient.generatetoaddress(1, newAddress.address))
-      } yield generateResult).value
-
-      res.map(result => result shouldBe Symbol("right"))
+    "generate" in {
+      zcashdCashClient.generate(1).map(result => result shouldBe Symbol("right"))
     }
     "get transaction" in {
       val transaction = (for {
@@ -80,8 +75,7 @@ class ZcashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integ
     }
     "list since block" in {
       val listSinceBlock = (for {
-        newAddress <- NodeResponseT(zcashdCashClient.getNewAddress())
-        hash <- NodeResponseT(zcashdCashClient.generatetoaddress(1, newAddress.address))
+        hash <- NodeResponseT(zcashdCashClient.generate(1))
         listSinceBlock <- NodeResponseT(zcashdCashClient.listSinceBlock(hash.hashes.head))
       } yield listSinceBlock).value
 

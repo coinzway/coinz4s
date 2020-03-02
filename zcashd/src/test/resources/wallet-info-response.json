@@ -1,13 +1,13 @@
 {
   "result": {
     "walletversion": 60000,
-    "balance": 3306.79687127,
+    "balance": 3364.30185250,
     "unconfirmed_balance": 0.00000000,
-    "immature_balance": 19.53125000,
-    "txcount": 1002,
-    "keypoololdest": 1582558186,
+    "immature_balance": 0.27277748,
+    "txcount": 2034,
+    "keypoololdest": 1582890775,
     "keypoolsize": 101,
-    "paytxfee": 0.00000000,
+    "paytxfee": 0.05000000,
     "seedfp": "d48ca3b2d6be0db8ae45f0ac4f4788a7ff49b9eaac09994a8c8761e33657c4d3"
   },
   "error": null,
