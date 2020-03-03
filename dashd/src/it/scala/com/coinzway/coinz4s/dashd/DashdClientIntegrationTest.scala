@@ -32,6 +32,9 @@ class DashdClientIntegrationTest extends AsyncWordSpec with Matchers with Integr
     "get blockchain info" in {
       dashdClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
+    "estimate smart fee" in {
+      dashdClient.estimateSmartFee(6).map(result => result shouldBe Symbol("right"))
+    }
     "list unspent transactions" in {
       dashdClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))
     }

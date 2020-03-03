@@ -4,6 +4,7 @@ import com.coinzway.coinz4s.core.BaseResponses.NodeResponse
 import com.coinzway.coinz4s.core.rpc.RpcClient
 import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpc
 import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.SignedRawTransaction
+import com.coinzway.coinz4s.core.rpc.estimatefee.EstimateFeeRpc
 import com.coinzway.coinz4s.core.rpc.generatetoaddress.GenerateToAddressRpc
 import com.coinzway.coinz4s.core.rpc.walletbase.WalletBaseRpc
 import com.softwaremill.sttp.SttpBackend
@@ -17,7 +18,8 @@ class BitcoindCashClient[R[_]](
   )(implicit val sttpBackend: SttpBackend[R, Nothing])
     extends BitcoindBaseRpc[R]
     with WalletBaseRpc[R]
-    with GenerateToAddressRpc[R] {
+    with GenerateToAddressRpc[R]
+    with EstimateFeeRpc[R] {
   val client = new RpcClient(user, password, host, port, wallet)
 
   override def signRawTransaction(transactionHex: String)(): R[NodeResponse[SignedRawTransaction]] =

@@ -34,6 +34,9 @@ class BitcoindCashClientIntegrationTest extends AsyncWordSpec with Matchers with
     "get blockchain info" in {
       bitcoindCashClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
+    "estimate fee" in {
+      bitcoindCashClient.estimateFee().map(result => result shouldBe Symbol("right"))
+    }
     "list unspent transactions" in {
       bitcoindCashClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))
     }

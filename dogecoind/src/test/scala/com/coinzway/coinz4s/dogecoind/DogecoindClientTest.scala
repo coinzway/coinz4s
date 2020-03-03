@@ -63,6 +63,15 @@ class DogecoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper 
     }
   }
 
+  it should "estimate smart fee" in {
+    dogecoindClient.estimateSmartFee(6) match {
+      case Left(_) => throw new RuntimeException("unexpected dogecoind response")
+      case Right(fee) =>
+        fee.feerate shouldBe Some(0.00010244)
+        fee.blocks shouldBe 6
+    }
+  }
+
   it should "return unspent transactions" in {
     dogecoindClient.listUnspentTransactions(minimumConfirmations = Some(0), maximumConfirmations = Some(99999999)) match {
       case Left(_) => throw new RuntimeException("unexpected dogecoind response")

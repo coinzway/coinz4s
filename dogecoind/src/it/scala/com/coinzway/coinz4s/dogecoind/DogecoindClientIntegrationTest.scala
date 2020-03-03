@@ -32,6 +32,9 @@ class DogecoindClientIntegrationTest extends AsyncWordSpec with Matchers with In
     "get blockchain info" in {
       dogecoindClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
+    "estimate smart fee" in {
+      dogecoindClient.estimateSmartFee(6).map(result => result shouldBe Symbol("right"))
+    }
     "list unspent transactions" in {
       dogecoindClient.listUnspentTransactions().map(result => result shouldBe Symbol("right"))
     }
