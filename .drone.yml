@@ -25,10 +25,12 @@ steps:
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:
       - sbt scalafmtCheckAll
+    depends_on: [ build ]
   - name: test
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:
       - sbt test
+    depends_on: [ build ]
   - name: integration_bitcoind
     image: hseeberger/scala-sbt:11.0.6_1.3.8_2.13.1
     commands:
