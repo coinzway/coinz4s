@@ -2,7 +2,7 @@ import org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings
 
 name := "coinz4s"
 
-ThisBuild / version := "0.1"
+ThisBuild / version := "0.1.0"
 
 ThisBuild / scalaVersion := "2.13.1"
 
@@ -82,7 +82,7 @@ lazy val bitcoind = (project in file("bitcoind"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(testUtils)
+  .dependsOn(testUtils % "test->test")
 
 lazy val litecoind = (project in file("litecoind"))
   .configs(IntegrationTest)
@@ -93,7 +93,7 @@ lazy val litecoind = (project in file("litecoind"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(testUtils)
+  .dependsOn(testUtils % "test->test")
 
 lazy val bitcoindCash = (project in file("bitcoindCash"))
   .configs(IntegrationTest)
@@ -104,7 +104,7 @@ lazy val bitcoindCash = (project in file("bitcoindCash"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(testUtils)
+  .dependsOn(testUtils % "test->test")
 
 lazy val dogecoind = (project in file("dogecoind"))
   .configs(IntegrationTest)
@@ -115,7 +115,7 @@ lazy val dogecoind = (project in file("dogecoind"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(testUtils)
+  .dependsOn(testUtils % "test->test")
 
 lazy val dashd = (project in file("dashd"))
   .configs(IntegrationTest)
@@ -126,7 +126,7 @@ lazy val dashd = (project in file("dashd"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(testUtils)
+  .dependsOn(testUtils % "test->test")
 
 lazy val zcashd = (project in file("zcashd"))
   .configs(IntegrationTest)
@@ -137,4 +137,4 @@ lazy val zcashd = (project in file("zcashd"))
     libraryDependencies ++= dependencies
   )
   .dependsOn(core)
-  .dependsOn(testUtils)
+  .dependsOn(testUtils % "test->test")
