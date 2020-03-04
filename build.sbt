@@ -2,19 +2,20 @@ import org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings
 
 name := "coinz4s"
 
-version := "0.1"
+ThisBuild / version := "0.1"
 
 ThisBuild / scalaVersion := "2.13.1"
 
-organization := "coinzway"
+ThisBuild / organization := "com.coinzway"
 
-licenses += ("Apache-2.0", url("https://opensource.org/licenses/Apache-2.0"))
+ThisBuild / publishTo := sonatypePublishToBundle.value
 
 lazy val IntegrationTest = config("it") extend Test
 
 lazy val root = (project in file("."))
   .configs(IntegrationTest)
   .settings(
+    publishArtifact := false,
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings)
   )
@@ -56,6 +57,7 @@ addCommandAlias("checkFormatAll", ";scalafmtCheckAll;scalafmtSbtCheck;it:scalafm
 lazy val testUtils = (project in file("testUtils"))
   .configs(IntegrationTest)
   .settings(
+    publishArtifact := false,
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies ++ testUtilDependencies
@@ -65,6 +67,7 @@ lazy val testUtils = (project in file("testUtils"))
 lazy val core = (project in file("core"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-core",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
@@ -73,6 +76,7 @@ lazy val core = (project in file("core"))
 lazy val bitcoind = (project in file("bitcoind"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-bitcoind",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
@@ -83,6 +87,7 @@ lazy val bitcoind = (project in file("bitcoind"))
 lazy val litecoind = (project in file("litecoind"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-litecoind",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
@@ -93,6 +98,7 @@ lazy val litecoind = (project in file("litecoind"))
 lazy val bitcoindCash = (project in file("bitcoindCash"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-bitcoindCash",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
@@ -103,6 +109,7 @@ lazy val bitcoindCash = (project in file("bitcoindCash"))
 lazy val dogecoind = (project in file("dogecoind"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-dogecoind",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
@@ -113,6 +120,7 @@ lazy val dogecoind = (project in file("dogecoind"))
 lazy val dashd = (project in file("dashd"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-dashd",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
@@ -123,6 +131,7 @@ lazy val dashd = (project in file("dashd"))
 lazy val zcashd = (project in file("zcashd"))
   .configs(IntegrationTest)
   .settings(
+    name := "coinz4s-zcashd",
     Defaults.itSettings,
     inConfig(IntegrationTest)(scalafmtConfigSettings),
     libraryDependencies ++= dependencies
