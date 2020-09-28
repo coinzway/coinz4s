@@ -149,4 +149,7 @@ object BitcoindBaseRpcResponses {
       proxy: String,
       localaddress: Option[Vector[Address]])
 
+  final case class GetRawMempoolResponse(
+      mempoolTxids: Vector[String]
+  )
 }

@@ -112,6 +112,18 @@ trait BitcoindBaseRpcJsonFormats extends DefaultJsonProtocol {
     }
   }
 
+  implicit object GetRawMempoolResponseFormat extends RootJsonReader[GetRawMempoolResponse] {
+
+    override def read(json: JsValue): GetRawMempoolResponse = json match {
+      case JsArray(txids) =>
+        GetRawMempoolResponse(txids.map {
+          case txid: JsString => txid.value
+          case other          => deserializationError("Expected txid value as JsString, but got " + other)
+        })
+      case x => deserializationError("Expected array of strings, but got " + x)
+    }
+  }
+
   implicit object ValidateAddressFormat extends RootJsonReader[ValidateAddress] {
 
     override def read(json: JsValue): ValidateAddress = json.asJsObject.getFields("isvalid") match {

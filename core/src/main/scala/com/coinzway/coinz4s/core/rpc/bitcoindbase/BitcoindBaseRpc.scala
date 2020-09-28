@@ -89,4 +89,9 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
 
   def validateAddress(address: String)(): R[NodeResponse[ValidateAddress]] =
     client.request[ValidateAddress]("validateaddress", Vector(address))
+
+  def getRawMempool(): R[NodeResponse[GetRawMempoolResponse]] = {
+    val verbose = false
+    client.request[GetRawMempoolResponse]("getrawmempool", Vector(verbose))
+  }
 }
