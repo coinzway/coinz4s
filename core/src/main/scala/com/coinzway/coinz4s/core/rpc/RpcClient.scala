@@ -1,6 +1,6 @@
 package com.coinzway.coinz4s.core.rpc
 
-import com.coinzway.coinz4s.core.BaseResponses.{CorrectResponse, GeneralErrorResponse, NodeResponse}
+import com.coinzway.coinz4s.core.BaseResponses.{GeneralErrorResponse, NodeResponse}
 import com.softwaremill.sttp._
 import spray.json._
 
@@ -17,7 +17,7 @@ class RpcClient[R[_]](
   private val walletPath = wallet.map(w => s"/wallet/$w").getOrElse("")
   private val uri = s"http://$host:$port$walletPath"
 
-  def request[T <: CorrectResponse](
+  def request[T](
       methodName: String,
       params: Vector[Any]
     )(implicit jsonReader: JsonReader[T]
@@ -33,7 +33,7 @@ class RpcClient[R[_]](
 
   }
 
-  private def as[T <: CorrectResponse](implicit reader: JsonReader[T]): ResponseAs[NodeResponse[T], Nothing] =
+  private def as[T](implicit reader: JsonReader[T]): ResponseAs[NodeResponse[T], Nothing] =
     asString.map { r =>
       val responseObject = r.parseJson.asJsObject
       responseObject.fields("result") match {

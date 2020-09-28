@@ -1,9 +1,9 @@
 package com.coinzway.coinz4s.bitcoind
 
-import com.coinzway.coinz4s.core.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
-import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{CoinbaseInput, TransactionInput}
 import com.coinzway.coinz4s.core.BaseResponses.GeneralErrorResponse
 import com.coinzway.coinz4s.core.ClientObjects
+import com.coinzway.coinz4s.core.ClientObjects.{AddressType, RawTransactionInput, RawTransactionInputs}
+import com.coinzway.coinz4s.core.rpc.bitcoindbase.BitcoindBaseRpcResponses.{CoinbaseInput, TransactionInput}
 import com.softwaremill.sttp._
 import com.softwaremill.sttp.testing.SttpBackendStub
 import org.scalatest.flatspec.AnyFlatSpec
@@ -243,6 +243,12 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     bitcoinClient.createWallet(walletName) match {
       case Left(_)     => throw new RuntimeException("unexpected bitcoind response")
       case Right(resp) => resp.name shouldBe walletName
+    }
+  }
+  "getrawmempool" should "return list of txids in mempool" in {
+    bitcoinClient.getRawMempool() match {
+      case Left(_)     => throw new RuntimeException("unexpected bitcoind response")
+      case Right(resp) => resp.mempoolTxids.nonEmpty shouldBe true
     }
   }
 
