@@ -1,7 +1,5 @@
 package com.coinzway.coinz4s.core.rpc.bitcoindbase
 
-import com.coinzway.coinz4s.core.BaseResponses._
-
 object BitcoindBaseRpcResponses {
 
   final case class GetWalletInfo(
@@ -11,7 +9,7 @@ object BitcoindBaseRpcResponses {
       txcount: Int,
       keypoololdest: Int,
       keypoolsize: Int)
-      extends CorrectResponse
+
 
   final case class GetNetworkInfo(
       version: Int,
@@ -23,7 +21,7 @@ object BitcoindBaseRpcResponses {
       relayfee: BigDecimal,
       localservices: String,
       networks: Vector[Network])
-      extends CorrectResponse
+
 
   final case class GetMemPoolInfo(
       size: Int,
@@ -31,7 +29,7 @@ object BitcoindBaseRpcResponses {
       usage: Int,
       maxmempool: Option[Int],
       mempoolminfee: Option[Int])
-      extends CorrectResponse
+
 
   final case class GetBlockChainInfo(
       chain: String,
@@ -43,9 +41,9 @@ object BitcoindBaseRpcResponses {
       chainwork: String,
       pruned: Boolean,
       pruneheight: Option[Int])
-      extends CorrectResponse
 
-  final case class UnspentTransactions(unspentTransactions: Vector[UnspentTransaction]) extends CorrectResponse
+
+  final case class UnspentTransactions(unspentTransactions: Vector[UnspentTransaction])
 
   final case class UnspentTransaction(
       txid: String,
@@ -57,18 +55,18 @@ object BitcoindBaseRpcResponses {
       spendable: Boolean,
       solvable: Option[Boolean])
 
-  final case class GetNewAddress(address: String) extends CorrectResponse
+  final case class GetNewAddress(address: String)
 
-  final case class GetRawChangeAddress(address: String) extends CorrectResponse
+  final case class GetRawChangeAddress(address: String)
 
-  final case class SentTransactionId(id: String) extends CorrectResponse
+  final case class SentTransactionId(id: String)
 
-  final case class HeaderHashes(hashes: Seq[String]) extends CorrectResponse
+  final case class HeaderHashes(hashes: Seq[String])
 
-  final case class SetTxFee(result: Boolean) extends CorrectResponse
+  final case class SetTxFee(result: Boolean)
 
   final case class ListSinceBlockResponse(transactions: List[ListSinceBlockTransaction], lastblock: String)
-      extends CorrectResponse
+
 
   final case class ListSinceBlockTransaction(
       address: String,
@@ -108,7 +106,7 @@ object BitcoindBaseRpcResponses {
       to: Option[String],
       details: List[TransactionDetails],
       hex: String)
-      extends CorrectResponse
+
 
   sealed trait Input
   final case class TransactionInput(txid: String, vout: Long) extends Input
@@ -122,7 +120,7 @@ object BitcoindBaseRpcResponses {
       vin: List[Input],
       vout: List[TransactionOutput],
       confirmations: Option[Long])
-      extends CorrectResponse
+
 
   final case class TransactionDetails(
       involvesWatchonly: Option[Boolean],
@@ -133,11 +131,11 @@ object BitcoindBaseRpcResponses {
       fee: Option[BigDecimal],
       abandoned: Option[Boolean])
 
-  final case class TransactionHex(hex: String) extends CorrectResponse
-  final case class SignedRawTransaction(hex: String, complete: Boolean) extends CorrectResponse
+  final case class TransactionHex(hex: String)
+  final case class SignedRawTransaction(hex: String, complete: Boolean)
 
-  final case class ValidateAddress(isvalid: Boolean) extends CorrectResponse
-  final case class CreateWallet(name: String) extends CorrectResponse
+  final case class ValidateAddress(isvalid: Boolean)
+  final case class CreateWallet(name: String)
 
   final case class Address(
       address: String,
