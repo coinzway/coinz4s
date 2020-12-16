@@ -2,7 +2,7 @@ import org.scalafmt.sbt.ScalafmtPlugin.scalafmtConfigSettings
 
 name := "coinz4s"
 
-ThisBuild / version := "0.1.1"
+ThisBuild / version := "0.1.2"
 
 ThisBuild / scalaVersion := "2.13.1"
 
