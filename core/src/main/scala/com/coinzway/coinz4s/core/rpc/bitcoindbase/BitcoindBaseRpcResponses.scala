@@ -10,7 +10,6 @@ object BitcoindBaseRpcResponses {
       keypoololdest: Int,
       keypoolsize: Int)
 
-
   final case class GetNetworkInfo(
       version: Int,
       subversion: String,
@@ -22,14 +21,12 @@ object BitcoindBaseRpcResponses {
       localservices: String,
       networks: Vector[Network])
 
-
   final case class GetMemPoolInfo(
       size: Int,
       bytes: Int,
       usage: Int,
       maxmempool: Option[Int],
       mempoolminfee: Option[Int])
-
 
   final case class GetBlockChainInfo(
       chain: String,
@@ -41,7 +38,6 @@ object BitcoindBaseRpcResponses {
       chainwork: String,
       pruned: Boolean,
       pruneheight: Option[Int])
-
 
   final case class UnspentTransactions(unspentTransactions: Vector[UnspentTransaction])
 
@@ -66,7 +62,6 @@ object BitcoindBaseRpcResponses {
   final case class SetTxFee(result: Boolean)
 
   final case class ListSinceBlockResponse(transactions: List[ListSinceBlockTransaction], lastblock: String)
-
 
   final case class ListSinceBlockTransaction(
       address: String,
@@ -107,7 +102,6 @@ object BitcoindBaseRpcResponses {
       details: List[TransactionDetails],
       hex: String)
 
-
   sealed trait Input
   final case class TransactionInput(txid: String, vout: Long) extends Input
   final case class CoinbaseInput(coinbase: String, sequence: Long) extends Input
@@ -120,7 +114,6 @@ object BitcoindBaseRpcResponses {
       vin: List[Input],
       vout: List[TransactionOutput],
       confirmations: Option[Long])
-
 
   final case class TransactionDetails(
       involvesWatchonly: Option[Boolean],
@@ -149,7 +142,5 @@ object BitcoindBaseRpcResponses {
       proxy: String,
       localaddress: Option[Vector[Address]])
 
-  final case class GetRawMempoolResponse(
-      mempoolTxids: Vector[String]
-  )
+  final case class GetRawMempoolResponse(mempoolTxids: Vector[String])
 }

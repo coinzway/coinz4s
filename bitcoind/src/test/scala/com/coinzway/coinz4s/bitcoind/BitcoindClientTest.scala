@@ -196,6 +196,15 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     }
   }
 
+  "sendmany as replaceable" should "return transaction id" in {
+    val txId = "b5d1a82d7fd1f0e566bb0aabed172019854e2dff0ae729dc446beefd17c5c0cc"
+    val sendManyMap = ClientObjects.Recipients(Map("address1" -> 0.1, "address2" -> 0.3))
+    bitcoinClient.sendMany(recipients = sendManyMap, replaceable = Some(true)) match {
+      case Left(_)              => throw new RuntimeException("unexpected bitcoind response")
+      case Right(transactionId) => transactionId.id shouldBe txId
+    }
+  }
+
   "createrawtransaction" should "return transaction hex" in {
     val hex = "02000000000180969800000000001976a914f5b32cc7579d678b60780846128b0f98f74cd10e88ac00000000"
     val inputs = RawTransactionInputs(

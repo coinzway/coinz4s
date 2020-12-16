@@ -14,5 +14,6 @@ object HttpParamsConverter extends DefaultJsonProtocol {
     case param: Boolean                            => param.toString
     case param: ClientObjects.Recipients           => param.value.toJson.compactPrint
     case param: ClientObjects.RawTransactionInputs => param.inputs.toJson.compactPrint
+    case param: ClientObjects.SubtractFeeFromList  => param.addresses.toJson.compactPrint
   }
 }

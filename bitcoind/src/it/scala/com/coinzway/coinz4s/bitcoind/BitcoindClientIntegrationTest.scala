@@ -103,6 +103,17 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers with Int
 
       sendMany.map(result => result shouldBe Symbol("right"))
     }
+    "send many as replaceable" in {
+      val sendMany = (for {
+        newAddress1 <- NodeResponseT(bitcoinClient.getNewAddress())
+        newAddress2 <- NodeResponseT(bitcoinClient.getNewAddress())
+        sendMany <- NodeResponseT(
+          bitcoinClient.sendMany(recipients(1, newAddress1, newAddress2), None, None, None, Some(true))
+        )
+      } yield sendMany).value
+
+      sendMany.map(result => result shouldBe Symbol("right"))
+    }
     "create raw transaction" in {
       val createRawTransaction = (for {
         input <- NodeResponseT(bitcoinClient.listUnspentTransactions())

@@ -1,7 +1,7 @@
 package com.coinzway.coinz4s.core.rpc.bitcoindbase
 
 import com.coinzway.coinz4s.core.BaseResponses.NodeResponse
-import com.coinzway.coinz4s.core.ClientObjects.{AddressType, RawTransactionInputs, Recipients}
+import com.coinzway.coinz4s.core.ClientObjects.{AddressType, RawTransactionInputs, Recipients, SubtractFeeFromList}
 import BitcoindBaseRpcResponses._
 import com.coinzway.coinz4s.core.rpc.RpcClient
 import com.coinzway.coinz4s.core.{ClientObjects, NodeResponseT}
@@ -71,8 +71,26 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
     ): R[NodeResponse[ListSinceBlockResponse]] =
     client.request[ListSinceBlockResponse]("listsinceblock", Vector(headerHash, targetConfirmations, includeWatchOnly))
 
-  def sendMany(recipients: ClientObjects.Recipients)(): R[NodeResponse[SentTransactionId]] =
-    client.request[SentTransactionId]("sendmany", Vector("", recipients))
+  def sendMany(
+      recipients: ClientObjects.Recipients,
+      minConf: Option[Int] = None,
+      comment: Option[String] = None,
+      subtractFeeFrom: Option[SubtractFeeFromList] = None,
+      replaceable: Option[Boolean] = None
+    )(
+    ): R[NodeResponse[SentTransactionId]] =
+    client
+      .request[SentTransactionId](
+        "sendmany",
+        Vector(
+          "",
+          recipients,
+          minConf.getOrElse(1),
+          comment.getOrElse(""),
+          subtractFeeFrom.getOrElse(SubtractFeeFromList(List.empty)),
+          replaceable.getOrElse(false)
+        )
+      )
 
   def createRawTransaction(inputs: RawTransactionInputs, outputs: Recipients)(): R[NodeResponse[TransactionHex]] =
     client.request[TransactionHex]("createrawtransaction", Vector(inputs, outputs))

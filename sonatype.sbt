@@ -13,6 +13,6 @@ ThisBuild / scmInfo := Some(
   )
 )
 
-ThisBuild /developers := List(
-  Developer(id="wlk", name="Wojciech Langiewicz", email="", url=url("https://www.wlangiewicz.com"))
+ThisBuild / developers := List(
+  Developer(id = "wlk", name = "Wojciech Langiewicz", email = "", url = url("https://www.wlangiewicz.com"))
 )

@@ -3,6 +3,7 @@ package com.coinzway.coinz4s.core
 object ClientObjects {
   final case class Recipients(value: Map[String, BigDecimal])
   final case class RawTransactionInputs(inputs: List[RawTransactionInput])
+  final case class SubtractFeeFromList(addresses: List[String])
 
   final case class RawTransactionInput(
       txid: String,

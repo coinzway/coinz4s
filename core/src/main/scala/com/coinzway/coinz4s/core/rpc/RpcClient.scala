@@ -17,11 +17,7 @@ class RpcClient[R[_]](
   private val walletPath = wallet.map(w => s"/wallet/$w").getOrElse("")
   private val uri = s"http://$host:$port$walletPath"
 
-  def request[T](
-      methodName: String,
-      params: Vector[Any]
-    )(implicit jsonReader: JsonReader[T]
-    ): R[NodeResponse[T]] = {
+  def request[T](methodName: String, params: Vector[Any])(implicit jsonReader: JsonReader[T]): R[NodeResponse[T]] = {
     import com.softwaremill.sttp.monadSyntax._
     sttp.auth
       .basic(user, password)

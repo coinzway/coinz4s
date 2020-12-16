@@ -3,9 +3,7 @@ package com.coinzway.coinz4s.core
 import com.coinzway.coinz4s.core.BaseResponses._
 import com.softwaremill.sttp.MonadError
 
-final case class NodeResponseT[R[_], A](
-    value: R[NodeResponse[A]]
-  )(implicit monadError: MonadError[R]) {
+final case class NodeResponseT[R[_], A](value: R[NodeResponse[A]])(implicit monadError: MonadError[R]) {
 
   import com.softwaremill.sttp.monadSyntax._
 
