@@ -49,10 +49,22 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
       to: String,
       amount: BigDecimal,
       comment: String = "",
-      commentTo: String = ""
+      commentTo: String = "",
+      subtractFeeFrom: Option[SubtractFeeFromList] = None,
+      replaceable: Option[Boolean] = None
     )(
     ): R[NodeResponse[SentTransactionId]] =
-    client.request[SentTransactionId]("sendtoaddress", Vector(to, amount, comment, commentTo))
+    client.request[SentTransactionId](
+      "sendtoaddress",
+      Vector(
+        to,
+        amount,
+        comment,
+        commentTo,
+        subtractFeeFrom.getOrElse(SubtractFeeFromList(List.empty)),
+        replaceable.getOrElse(false)
+      )
+    )
 
   def setTxFee(btcPerKb: BigDecimal)(): R[NodeResponse[SetTxFee]] =
     client.request[SetTxFee]("settxfee", Vector(btcPerKb))
