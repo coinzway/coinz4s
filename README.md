@@ -24,3 +24,11 @@ This project attempts to create a common interface for interacting with multiple
 # Testing
 - Create unit tests that map json responses from the wallet to expected case classes
 - Create integration tests that perform RPC calls to wallets running in regtest mode
+
+# Sonatype 
+
+- https://oss.sonatype.org/#nexus-search;quick~coinz4s
+
+To publish new verison:
+
+sbt$ publishSigned ; sonatypeBundleRelease
