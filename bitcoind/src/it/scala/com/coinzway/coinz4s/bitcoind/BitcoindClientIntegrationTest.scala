@@ -51,7 +51,9 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers with Int
     "send to address" in {
       val sendToAddress = (for {
         newAddress <- NodeResponseT(bitcoinClient.getNewAddress())
-        sendToAddress <- NodeResponseT(bitcoinClient.sendToAddress(newAddress.address, 10, "comment", "commentTo"))
+        sendToAddress <- NodeResponseT(
+          bitcoinClient.sendToAddress(newAddress.address, 10, "comment", "commentTo", Some(true), Some(true))
+        )
       } yield sendToAddress).value
 
       sendToAddress.map(result => result shouldBe Symbol("right"))

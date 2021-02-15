@@ -118,6 +118,13 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     }
   }
 
+  "sendtoaddress" should "send and return transation id with subtractfeefromamount and bip-125" in {
+    bitcoinClient.sendToAddress("nt54hMq9ghkvTBqmw3BoLjPBGBPWU1RexJ", 0.001, "", "", Some(true), Some(true)) match {
+      case Left(_)              => throw new RuntimeException("unexpected bitcoind response")
+      case Right(transactionId) => transactionId.id should have size 64
+    }
+  }
+
   it should "handle insufficient funds errors" in {
     bitcoinClient.sendToAddress("nt54hMq9ghkvTBqmw3BoLjPBGBPWU1RexJ", 101) match {
       case Left(x) =>

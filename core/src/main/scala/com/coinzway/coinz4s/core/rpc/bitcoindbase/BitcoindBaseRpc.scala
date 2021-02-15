@@ -50,7 +50,7 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
       amount: BigDecimal,
       comment: String = "",
       commentTo: String = "",
-      subtractFeeFrom: Option[SubtractFeeFromList] = None,
+      subtractFeeFromAmount: Option[Boolean] = None,
       replaceable: Option[Boolean] = None
     )(
     ): R[NodeResponse[SentTransactionId]] =
@@ -61,7 +61,7 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
         amount,
         comment,
         commentTo,
-        subtractFeeFrom.getOrElse(SubtractFeeFromList(List.empty)),
+        subtractFeeFromAmount.getOrElse(false),
         replaceable.getOrElse(false)
       )
     )
