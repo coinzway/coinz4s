@@ -56,6 +56,20 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
     }
   }
 
+  it should "return getblockcount" in {
+    bitcoinClient.getBlockCount match {
+      case Left(ex)             => throw new RuntimeException(s"unexpected bitcoind response: ${ex}")
+      case Right(getblockcount) => getblockcount.n > 0
+    }
+  }
+
+  it should "return getblockstats" in {
+    bitcoinClient.getBlockStats("100") match {
+      case Left(_)              => throw new RuntimeException("unexpected bitcoind response")
+      case Right(getblockstats) => getblockstats.height shouldBe 100
+    }
+  }
+
   it should "return blockchainInfo" in {
     bitcoinClient.blockchainInfo match {
       case Left(_)               => throw new RuntimeException("unexpected bitcoind response")
@@ -64,7 +78,7 @@ class BitcoindClientTest extends AnyFlatSpec with Matchers with TestDataHelper {
   }
 
   it should "estimate smart fee" in {
-    bitcoinClient.estimateSmartFee(6) match {
+    bitcoinClient.estimateSmartFee(6, None) match {
       case Left(_) => throw new RuntimeException("unexpected bitcoind response")
       case Right(fee) =>
         fee.feerate shouldBe Some(0.00010244)

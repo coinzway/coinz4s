@@ -59,6 +59,8 @@ trait TestDataHelper {
           case "validateaddress"                                    => TestData.validateAddress
           case "createwallet"                                       => TestData.createWalletResponse
           case "getrawmempool"                                      => TestData.getRawMempoolResponse
+          case "getblockcount"                                      => TestData.getBlockCountResponse
+          case "getblockstats"                                      => TestData.getBlockStatsResponse
 
           case _ => JsNumber(-1)
         }

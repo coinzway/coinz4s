@@ -30,6 +30,8 @@ object TestData {
   val createWalletResponse: JsValue = readJson("create-wallet-response.json")
   val invalidJsonResponse: JsValue = readJson("invalid-json-response.json")
   val getRawMempoolResponse: JsValue = readJson("get-raw-mempool-response.json")
+  val getBlockStatsResponse: JsValue = readJson("get-block-stats-response.json")
+  val getBlockCountResponse: JsValue = readJson("get-block-count-response.json")
 
   private def readJson(name: String): JsValue = {
     val json = scala.io.Source.fromResource(name).getLines.mkString
