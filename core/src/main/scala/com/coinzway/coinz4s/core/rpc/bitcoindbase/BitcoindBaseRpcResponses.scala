@@ -21,6 +21,39 @@ object BitcoindBaseRpcResponses {
       localservices: String,
       networks: Vector[Network])
 
+  final case class GetBlockCount(n: Int)
+
+  final case class GetBlockStats(
+      avgfee: Int,
+      avgfeerate: Int,
+      avgtxsize: Int,
+      blockhash: String,
+      feerate_percentiles: List[Int],
+      height: Int,
+      ins: Int,
+      maxfee: Int,
+      maxfeerate: Int,
+      maxtxsize: Int,
+      medianfee: Int,
+      mediantime: Int,
+      mediantxsize: Int,
+      minfee: Int,
+      minfeerate: Int,
+      mintxsize: Int,
+      outs: Int,
+      subsidy: Int,
+      swtotal_size: Int,
+      swtotal_weight: Int,
+      swtxs: Int,
+      time: Int,
+      total_out: Int,
+      total_size: Int,
+      total_weight: Int,
+      totalfee: Int,
+      txs: Int,
+      utxo_increase: Int,
+      utxo_size_inc: Int)
+
   final case class GetMemPoolInfo(
       size: Int,
       bytes: Int,

@@ -20,6 +20,12 @@ trait BitcoindBaseRpc[R[_]] extends BitcoindBaseRpcJsonFormats {
   def networkInfo: R[NodeResponse[GetNetworkInfo]] =
     client.request[GetNetworkInfo]("getnetworkinfo", Vector.empty)
 
+  def getBlockCount: R[NodeResponse[GetBlockCount]] =
+    client.request[GetBlockCount]("getblockcount", Vector.empty)
+
+  def getBlockStats(hashOrHeight: String): R[NodeResponse[GetBlockStats]] =
+    client.request[GetBlockStats]("getblockstats", Vector(hashOrHeight))
+
   def memPoolInfo: R[NodeResponse[GetMemPoolInfo]] =
     client.request[GetMemPoolInfo]("getmempoolinfo", Vector.empty)
 

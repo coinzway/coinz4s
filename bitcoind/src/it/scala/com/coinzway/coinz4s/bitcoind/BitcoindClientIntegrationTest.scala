@@ -31,6 +31,12 @@ class BitcoindClientIntegrationTest extends AsyncWordSpec with Matchers with Int
     "get mem pool info" in {
       bitcoinClient.memPoolInfo.map(result => result shouldBe Symbol("right"))
     }
+    "getBlockCount" in {
+      bitcoinClient.getBlockCount.map(result => result shouldBe Symbol("right"))
+    }
+    "getBlockStats" in {
+      bitcoinClient.getBlockStats("1").map(result => result shouldBe Symbol("right"))
+    }
     "get blockchain info" in {
       bitcoinClient.blockchainInfo.map(result => result shouldBe Symbol("right"))
     }
